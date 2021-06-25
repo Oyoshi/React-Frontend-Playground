@@ -1,12 +1,12 @@
-@import './palette.scss';
+@import "./palette.scss";
 
 // Common for Light and Dark Theme
-$accentColor: $Turquoise;
+$accent-color: $Turquoise;
 
 // Light Theme
-$backgroundPrimaryColorLight: $White;
-$primaryColorLight: $Jet;
+$background-primary-color-light: $White;
+$primary-color-light: $Jet;
 
 // Dark Theme
-$backgroundPrimaryColorDark: $Jet;
-$primaryColorDark: $White;
+$background-primary-color-dark: $Jet;
+$primary-color-dark: $White;
