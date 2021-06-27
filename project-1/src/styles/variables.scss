@@ -2,11 +2,15 @@
 
 // Common for Light and Dark Theme
 $accent-color: $Turquoise;
+$text-secondary-color: $SpanishGray;
+
+$button-border-color: $Turquoise;
+$button-active-color: $text-secondary-color;
 
 // Light Theme
-$background-primary-color-light: $White;
-$primary-color-light: $Jet;
+$background-color-light: $White;
+$text-primary-color-light: $Jet;
 
 // Dark Theme
-$background-primary-color-dark: $Jet;
-$primary-color-dark: $White;
+$background-color-dark: $Jet;
+$text-primary-color-dark: $White;
