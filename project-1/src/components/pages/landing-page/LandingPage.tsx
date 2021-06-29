@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Button } from "components/atoms";
+import Typography, { Button } from "components/atoms";
 import { ThemeContext, IThemeContext, ThemePostfix } from "contexts";
 import styles from "./LandingPage.module.scss";
+
+const { Heading, Text, Accent } = Typography;
 
 export const LandingPage = () => {
   const [themePostfix, setThemePostfix] = useState<ThemePostfix>("light");
@@ -31,19 +33,15 @@ export const LandingPage = () => {
               <li>aaaa</li>
             </ul>
           </nav>
-          <div className={styles["App-header"]}>
-            <p>
-              Edit <code>src/App.tsx</code> and save to reload.
-            </p>
-            <a
-              className={styles["App-link"]}
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {" "}
-              Learn React
-            </a>
+          <div
+            className={`${styles["App-header"]} ${
+              styles[`App-header--${themePostfix}`]
+            }`}
+          >
+            <Typography.Heading level={1}>
+              Ala <Accent>ma</Accent> kota
+            </Typography.Heading>
+            <Text>Ala ma kota</Text>
             <button onClick={() => switchTheme()}>Day / Night</button>
             <div style={{ zIndex: 10 }}>
               <Button title="Contact Us" target="/" />

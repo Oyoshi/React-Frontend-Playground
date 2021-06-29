@@ -1,0 +1,15 @@
+@import "styles/variables.scss";
+
+.typography {
+  &--light {
+    color: $text-primary-color-light;
+  }
+
+  &--dark {
+    color: $text-primary-color-dark;
+  }
+
+  &__accent {
+    color: $accent-color;
+  }
+}
