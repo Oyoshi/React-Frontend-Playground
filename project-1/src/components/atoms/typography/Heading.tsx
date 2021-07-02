@@ -9,7 +9,7 @@ interface IHeading {
 
 export type HeadingFCType = React.FC<IHeading>;
 
-export const Heading: React.FC<IHeading> = ({ level, children }) => {
+export const Heading: HeadingFCType = ({ level, children }) => {
   const { themePostfix } = useContext<IThemeContext>(ThemeContext);
 
   switch (level) {

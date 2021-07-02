@@ -4,7 +4,7 @@
 .button {
   font-size: inherit;
   text-align: center;
-  font-weight: bold;
+  font-weight: $font-weight-bold;
   letter-spacing: 3px;
   text-transform: uppercase;
   text-decoration: none;
@@ -19,12 +19,12 @@
 
   &--light {
     color: $text-primary-color-light;
-    background: $background-color-light;
+    background-color: $background-color-light;
   }
 
   &--dark {
     color: $text-primary-color-dark;
-    background: $background-color-dark;
+    background-color: $background-color-dark;
   }
 
   &::after {

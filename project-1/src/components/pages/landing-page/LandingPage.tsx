@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Typography, { Button } from "components/atoms";
+import Navbar from "components/molecules";
 import { ThemeContext, IThemeContext, ThemePostfix } from "contexts";
 import styles from "./LandingPage.module.scss";
 
-const { Heading, Text, Accent } = Typography;
+const { Text, Accent } = Typography;
 
 export const LandingPage = () => {
   const [themePostfix, setThemePostfix] = useState<ThemePostfix>("light");
@@ -25,14 +26,10 @@ export const LandingPage = () => {
     <ThemeContext.Provider value={themeContextProviderValue}>
       <div className={styles["App"]}>
         <header>
-          <nav>
-            <ul>
-              <li>aaaa</li>
-              <li>aaaa</li>
-              <li>aaaa</li>
-              <li>aaaa</li>
-            </ul>
-          </nav>
+          <Navbar>
+            <Navbar.NavbarItem title="aaa" target="/" />
+            <Navbar.NavbarItem title="bbb" target="/" />
+          </Navbar>
           <div
             className={`${styles["App-header"]} ${
               styles[`App-header--${themePostfix}`]

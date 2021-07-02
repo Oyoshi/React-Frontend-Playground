@@ -1,0 +1,27 @@
+@import "styles/variables.scss";
+
+.navbar {
+  width: 100vw;
+  font-size: calc(12px + 1vmin);
+  font-weight: $font-weight-bold;
+  position: fixed;
+  top: 0;
+
+  &__list {
+    margin: 0;
+    display: inline-block;
+  }
+
+  &--light {
+    background-color: $background-color-light;
+  }
+
+  &--dark {
+    background-color: $background-color-dark;
+  }
+
+  h3 {
+    display: inline-block;
+    padding: 0vh 2vw;
+  }
+}

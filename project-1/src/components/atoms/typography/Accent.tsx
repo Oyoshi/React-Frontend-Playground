@@ -7,6 +7,6 @@ interface IAccent {
 
 export type AccentFCType = React.FC<IAccent>;
 
-export const Accent: React.FC<IAccent> = ({ children }) => {
+export const Accent: AccentFCType = ({ children }) => {
   return <span className={styles["typography__accent"]}>{children}</span>;
 };

@@ -2,13 +2,19 @@
 
 // General
 $font-family: "Libre Franklin", sans-serif;
+$font-weight: 400;
+$font-weight-bold: 700;
 
 // Common for Light and Dark Theme
 $accent-color: $Turquoise;
 $text-secondary-color: $SpanishGray;
 
-$button-border-color: $Turquoise;
+$button-border-color: $accent-color;
 $button-active-color: $text-secondary-color;
+
+$navlink-hover-color: $text-secondary-color;
+$navlink-active-color: $accent-color;
+$navlink-bottom-border-color: $accent-color;
 
 // Light Theme
 $background-color-light: $White;

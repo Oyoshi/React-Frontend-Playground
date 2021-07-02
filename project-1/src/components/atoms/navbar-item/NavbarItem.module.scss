@@ -1,0 +1,47 @@
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
+
+.navbar__item {
+  display: inline-block;
+  list-style: none;
+  padding: 0vh 2vw;
+
+  &-link {
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background-color: $navlink-bottom-border-color;
+      @include transform-origin(center);
+      @include transform(translate(-50%, 0) scaleX(0));
+      @include transition(transform, 0.3s, ease-in-out);
+    }
+
+    &:hover {
+      color: $navlink-hover-color;
+
+      &::before {
+        @include transform(translate(-50%, 0) scaleX(1));
+      }
+    }
+
+    &--light {
+      color: $text-primary-color-light;
+    }
+
+    &--dark {
+      color: $text-primary-color-dark;
+    }
+
+    &--active {
+      color: $navlink-active-color;
+    }
+  }
+}

@@ -8,7 +8,7 @@ interface IText {
 
 export type TextFCType = React.FC<IText>;
 
-export const Text: React.FC<IText> = ({ children }) => {
+export const Text: TextFCType = ({ children }) => {
   const { themePostfix } = useContext<IThemeContext>(ThemeContext);
 
   return (
