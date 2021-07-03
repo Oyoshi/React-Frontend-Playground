@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { ThemeContext, IThemeContext } from "contexts";
 import styles from "./NavbarItem.module.scss";
 
-interface INavbarItem {
+export interface INavbarItem {
   title: string;
   target: string;
 }

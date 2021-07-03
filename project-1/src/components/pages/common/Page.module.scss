@@ -1,25 +1,18 @@
 @import "styles/variables.scss";
 
-.App {
-  min-height: 100vh;
-}
-
-.App-header {
+.hero-section {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  //color: white;
 
   &--light {
-    color: $text-primary-color-light;
     background-color: $background-color-light;
   }
 
   &--dark {
-    color: $text-primary-color-dark;
     background-color: $background-color-dark;
   }
 }
