@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { ThemeContext, IThemeContext } from "contexts";
 import styles from "./Button.module.scss";
 
@@ -11,11 +12,11 @@ export const Button: React.FC<IButton> = ({ title, target }) => {
   const { themePostfix } = useContext<IThemeContext>(ThemeContext);
 
   return (
-    <a
+    <Link
       className={`${styles["button"]} ${styles[`button--${themePostfix}`]}`}
-      href={target}
+      to={target}
     >
       {title}
-    </a>
+    </Link>
   );
 };

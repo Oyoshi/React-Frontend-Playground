@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { ThemeContext, IThemeContext } from "contexts";
 import styles from "./NavbarItem.module.scss";
 
@@ -14,14 +15,16 @@ export const NavbarItem: NavbarItemFCType = ({ title, target }) => {
 
   return (
     <li className={styles["navbar__item"]}>
-      <a
+      <NavLink
         className={`${styles["navbar__item-link"]} ${
           styles[`navbar__item-link--${themePostfix}`]
         }`}
-        href={target}
+        activeClassName={styles["navbar__item-link--active"]}
+        exact
+        to={target}
       >
         {title}
-      </a>
+      </NavLink>
     </li>
   );
 };

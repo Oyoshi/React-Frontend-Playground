@@ -27,8 +27,10 @@ export const LandingPage = () => {
       <div className={styles["App"]}>
         <header>
           <Navbar>
-            <Navbar.NavbarItem title="aaa" target="/" />
-            <Navbar.NavbarItem title="bbb" target="/" />
+            <Navbar.NavbarItem title="About Us" target="/aboutus" />
+            <Navbar.NavbarItem title="Portfolio" target="/portfolio" />
+            <Navbar.NavbarItem title="Our Process" target="/ourprocess" />
+            <Navbar.NavbarItem title="Contact" target="/contact" />
           </Navbar>
           <div
             className={`${styles["App-header"]} ${
@@ -41,7 +43,7 @@ export const LandingPage = () => {
             <Text>Ala ma kota</Text>
             <button onClick={() => switchTheme()}>Day / Night</button>
             <div style={{ zIndex: 10 }}>
-              <Button title="Contact Us" target="/" />
+              <Button title="Contact Us" target="/contact" />
             </div>
           </div>
         </header>
