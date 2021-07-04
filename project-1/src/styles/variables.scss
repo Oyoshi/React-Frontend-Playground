@@ -5,6 +5,9 @@ $font-family: "Libre Franklin", sans-serif;
 $font-weight: 400;
 $font-weight-bold: 700;
 
+$theme-switch-transition-duration: 0.3s;
+$theme-switch-transition-ease: ease-in;
+
 // Common for Light and Dark Theme
 $accent-color: $Turquoise;
 $text-secondary-color: $SpanishGray;

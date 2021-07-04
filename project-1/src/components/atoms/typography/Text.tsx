@@ -12,6 +12,12 @@ export const Text: TextFCType = ({ children }) => {
   const { themePostfix } = useContext<IThemeContext>(ThemeContext);
 
   return (
-    <p className={`${styles[`typography--${themePostfix}`]}`}>{children}</p>
+    <p
+      className={`${styles["typography"]} ${
+        styles[`typography--${themePostfix}`]
+      }`}
+    >
+      {children}
+    </p>
   );
 };

@@ -15,7 +15,11 @@
   padding: 15px 10px;
   cursor: pointer;
   width: auto;
-  @include transition(color, 0.3s, ease-in);
+  @include transitions(
+    color $theme-switch-transition-duration $theme-switch-transition-ease,
+    background-color $theme-switch-transition-duration
+      $theme-switch-transition-ease
+  );
 
   &--light {
     color: $text-primary-color-light;
@@ -37,13 +41,14 @@
     top: 4px;
     z-index: -1;
     content: "";
-    @include transition(all, 0.5s, ease);
+    @include transition(all, 0.4s, ease);
   }
 
   &:hover {
     top: 2px;
     left: 2px;
     color: $button-active-color;
+    @include transition(color, 0.4s, ease);
 
     &::after {
       top: -2px;

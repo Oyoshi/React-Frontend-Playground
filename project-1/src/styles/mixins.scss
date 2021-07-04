@@ -5,6 +5,13 @@
   transition: $property $duration $ease;
 }
 
+@mixin transitions($transitions...) {
+  -webkit-transition: $transitions;
+  -moz-transition: $transitions;
+  -o-transition: $transitions;
+  transition: $transitions;
+}
+
 @mixin transform-origin($origin) {
   -webkit-transform-origin: $origin;
   -moz-transform-origin: $origin;

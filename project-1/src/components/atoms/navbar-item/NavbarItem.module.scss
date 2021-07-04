@@ -11,6 +11,11 @@
     position: relative;
     text-decoration: none;
     cursor: pointer;
+    @include transition(
+      color,
+      $theme-switch-transition-duration,
+      $theme-switch-transition-ease
+    );
 
     &::before {
       content: "";
@@ -27,6 +32,7 @@
 
     &:hover {
       color: $navlink-hover-color;
+      @include transition(color, 0.3s, ease-in);
 
       &::before {
         @include transform(translate(-50%, 0) scaleX(1));

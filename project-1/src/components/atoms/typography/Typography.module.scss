@@ -1,6 +1,13 @@
 @import "styles/variables.scss";
+@import "styles/mixins.scss";
 
 .typography {
+  @include transition(
+    color,
+    $theme-switch-transition-duration,
+    $theme-switch-transition-ease
+  );
+
   &--light {
     color: $text-primary-color-light;
   }

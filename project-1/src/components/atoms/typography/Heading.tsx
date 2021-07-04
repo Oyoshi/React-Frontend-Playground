@@ -15,37 +15,61 @@ export const Heading: HeadingFCType = ({ level, children }) => {
   switch (level) {
     case 1:
       return (
-        <h1 className={`${styles[`typography--${themePostfix}`]}`}>
+        <h1
+          className={`${styles["typography"]} ${
+            styles[`typography--${themePostfix}`]
+          }`}
+        >
           {children}
         </h1>
       );
     case 2:
       return (
-        <h2 className={`${styles[`typography--${themePostfix}`]}`}>
+        <h2
+          className={`${styles["typography"]} ${
+            styles[`typography--${themePostfix}`]
+          }`}
+        >
           {children}
         </h2>
       );
     case 3:
       return (
-        <h3 className={`${styles[`typography--${themePostfix}`]}`}>
+        <h3
+          className={`${styles["typography"]} ${
+            styles[`typography--${themePostfix}`]
+          }`}
+        >
           {children}
         </h3>
       );
     case 4:
       return (
-        <h4 className={`${styles[`typography--${themePostfix}`]}`}>
+        <h4
+          className={`${styles["typography"]} ${
+            styles[`typography--${themePostfix}`]
+          }`}
+        >
           {children}
         </h4>
       );
     case 5:
       return (
-        <h5 className={`${styles[`typography--${themePostfix}`]}`}>
+        <h5
+          className={`${styles["typography"]} ${
+            styles[`typography--${themePostfix}`]
+          }`}
+        >
           {children}
         </h5>
       );
     case 6:
       return (
-        <h6 className={`${styles[`typography--${themePostfix}`]}`}>
+        <h6
+          className={`${styles["typography"]} ${
+            styles[`typography--${themePostfix}`]
+          }`}
+        >
           {children}
         </h6>
       );
