@@ -19,7 +19,9 @@ export const HomePage = () => {
         <Typography.Heading level={1}>
           Ala <Accent>ma</Accent> kota
         </Typography.Heading>
-        <Text>Ala ma kota</Text>
+        <Text>
+          Ala <Accent>ma</Accent> kota
+        </Text>
         <button onClick={() => switchTheme()}>Day / Night</button>
         <div style={{ zIndex: 10 }}>
           <Button title="Contact Us" target="/contact" />
