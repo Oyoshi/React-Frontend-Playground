@@ -22,7 +22,7 @@ export const OurProcessPage = () => {
         <Text>We're still working on it!</Text>
         <button onClick={() => switchTheme()}>Day / Night</button>
         <div style={{ zIndex: 10 }}>
-          <Button title="Contact Us" target="/contact" />
+          <Button title="Contact Us" target="/contac" />
         </div>
       </section>
     </PageTemplate>

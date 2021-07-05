@@ -7,6 +7,8 @@ import {
   ContactPage,
   PortfolioPage,
   OurProcessPage,
+  GenericErrorPage,
+  NOT_FOUND_PAGE,
 } from "components/pages";
 
 export const App = () => {
@@ -38,7 +40,10 @@ export const App = () => {
             component={OurProcessPage}
           />
           <Route key="CONTACT" path="/contact" component={ContactPage} />
-          <Route key="PAGE_404" component={() => <h1>404</h1>} />
+          <Route
+            key="PAGE_404"
+            render={() => <GenericErrorPage {...NOT_FOUND_PAGE} />}
+          />
         </Switch>
       </BrowserRouter>
     </ThemeContext.Provider>
