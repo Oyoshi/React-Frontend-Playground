@@ -3,10 +3,14 @@
 
 .navbar {
   width: 100vw;
-  font-size: 1.3em;
   font-weight: $font-weight-bold;
   position: fixed;
   top: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   @include transition(
     background-color,
     $theme-switch-transition-duration,
@@ -14,8 +18,8 @@
   );
 
   &__list {
-    margin: 0;
-    display: inline-block;
+    font-size: 1.3em;
+    margin-right: 4vw;
   }
 
   &--light {
@@ -24,10 +28,5 @@
 
   &--dark {
     background-color: $background-color-dark;
-  }
-
-  h3 {
-    display: inline-block;
-    padding: 0vh 4vw;
   }
 }

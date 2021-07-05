@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext, IThemeContext } from "contexts";
-import { NavbarItem, NavbarItemFCType } from "components/atoms";
+import { Logo, NavbarItem, NavbarItemFCType } from "components/atoms";
 import styles from "./Navbar.module.scss";
 
 type NavbarType = React.FC & {
@@ -12,7 +12,7 @@ const Navbar: NavbarType = ({ children }) => {
 
   return (
     <nav className={`${styles["navbar"]} ${styles[`navbar--${themePostfix}`]}`}>
-      <h3>Logo</h3>
+      <Logo />
       <ul className={styles["navbar__list"]}>{children}</ul>
     </nav>
   );
