@@ -1,0 +1,34 @@
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
+
+.toggle-button {
+  touch-action: pan-x;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  @include user-select(none);
+
+  &__container {
+    padding: 0;
+  }
+
+  &__state {
+    display: inline-block;
+    padding: 0 6px;
+
+    &--left {
+      border-right: 2px solid $accent-color;
+    }
+  }
+
+  &__input {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    width: 1px;
+  }
+}

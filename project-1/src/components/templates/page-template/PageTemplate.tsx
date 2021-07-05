@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "components/molecules";
-import { INavbarItem } from "components/atoms";
+import { INavbarItem, ToggleButton } from "components/atoms";
 import { NAVBAR_LINKS } from "./PageTemplate.const";
+import styles from "./PageTemplate.module.scss";
 
 interface IPageTemplate {
   children: React.ReactNode;
@@ -18,6 +19,9 @@ export const PageTemplate: React.FC<IPageTemplate> = ({ children }) => {
         </Navbar>
       </header>
       {children}
+      <div className={styles["page-template__toggler-wrapper"]}>
+        <ToggleButton />
+      </div>
     </div>
   );
 };

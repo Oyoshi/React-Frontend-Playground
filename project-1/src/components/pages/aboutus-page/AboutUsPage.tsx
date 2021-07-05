@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import Typography, { Button } from "components/atoms";
+import Typography from "components/atoms";
 import { ThemeContext, IThemeContext } from "contexts";
 import { PageTemplate } from "components/templates";
 import styles from "../common/Page.module.scss";
 
-const { Heading, Text, Accent } = Typography;
+const { Heading, Accent } = Typography;
 
 export const AboutUsPage = () => {
-  const { themePostfix, switchTheme } = useContext<IThemeContext>(ThemeContext);
+  const { themePostfix } = useContext<IThemeContext>(ThemeContext);
 
   return (
     <PageTemplate>
@@ -19,11 +19,7 @@ export const AboutUsPage = () => {
         <Heading level={1}>
           Welcome at <Accent>About Us</Accent> section
         </Heading>
-        <Text>We're still working on it!</Text>
-        <button onClick={() => switchTheme()}>Day / Night</button>
-        <div style={{ zIndex: 10 }}>
-          <Button title="Contact Us" target="/contact" />
-        </div>
+        <Heading level={4}>We're still working on it!</Heading>
       </section>
     </PageTemplate>
   );

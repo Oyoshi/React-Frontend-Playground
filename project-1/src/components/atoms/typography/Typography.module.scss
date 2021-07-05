@@ -16,6 +16,10 @@
     color: $text-primary-color-dark;
   }
 
+  &--inactive {
+    color: $text-secondary-color;
+  }
+
   &__accent {
     color: $accent-color;
   }
