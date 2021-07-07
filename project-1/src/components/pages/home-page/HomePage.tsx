@@ -2,9 +2,10 @@ import { useContext } from "react";
 import Typography, { LinkButton } from "components/atoms";
 import { ThemeContext, IThemeContext } from "contexts";
 import { PageTemplate } from "components/templates";
-import styles from "../common/Page.module.scss";
+import commonStyles from "../common/Page.module.scss";
+import homePageStyles from "./HomePage.module.scss";
 
-const { Text, Accent } = Typography;
+const { Heading, Accent } = Typography;
 
 export const HomePage = () => {
   const { themePostfix } = useContext<IThemeContext>(ThemeContext);
@@ -12,18 +13,18 @@ export const HomePage = () => {
   return (
     <PageTemplate>
       <section
-        className={`${styles["hero-section"]} ${
-          styles[`hero-section--${themePostfix}`]
+        className={`${commonStyles["hero-section"]} ${
+          commonStyles[`hero-section--${themePostfix}`]
         }`}
       >
-        <Typography.Heading level={1}>
-          Ala <Accent>ma</Accent> kota
-        </Typography.Heading>
-        <Text>
-          Ala <Accent>ma</Accent> kota
-        </Text>
-        <div style={{ zIndex: 10 }}>
-          <LinkButton title="Contact Us" target="/contact" />
+        <Heading level={1}>
+          Ubiq - <Accent>UX</Accent>/<Accent>UI</Accent> Digital Agency
+        </Heading>
+        <Heading level={5}>
+          Turning your idea into reality with our highly experienced team.
+        </Heading>
+        <div className={homePageStyles["home-page__button-wrapper"]}>
+          <LinkButton title="Let's Talk" target="/contact" />
         </div>
       </section>
     </PageTemplate>

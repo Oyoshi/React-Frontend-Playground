@@ -2,25 +2,18 @@
 @import "styles/mixins.scss";
 
 .navbar {
-  width: 100vw;
-  font-weight: $font-weight-bold;
+  margin: 0;
   position: fixed;
   top: 0;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  width: 90vw;
+  padding: 1rem 10vw;
+  z-index: 1000;
+  font-weight: $font-weight-bold;
   @include transition(
     background-color,
     $theme-switch-transition-duration,
     $theme-switch-transition-ease
   );
-
-  &__list {
-    font-size: 1.3em;
-    margin-right: 4vw;
-  }
 
   &--light {
     background-color: $background-color-light;
@@ -28,5 +21,45 @@
 
   &--dark {
     background-color: $background-color-dark;
+  }
+
+  &__container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $screen-small-max) {
+      flex-direction: column;
+    }
+  }
+
+  &__menu-container {
+    @media (max-width: $screen-small-max) {
+      display: inline;
+      text-align: left;
+      width: 100%;
+    }
+  }
+
+  &__list {
+    font-size: 1.3em;
+    margin-right: 4vw;
+
+    @media (max-width: $screen-medium-max) {
+      margin: 0;
+      padding: 0;
+      visibility: visible;
+      opacity: 1;
+      @include transition(all, 0.3s, ease-out);
+
+      &--hidden {
+        visibility: hidden;
+        opacity: 0;
+        max-height: 0;
+        @include transition(all, 0.3s, ease-out);
+      }
+    }
   }
 }

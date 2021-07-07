@@ -12,7 +12,9 @@ $theme-switch-transition-ease: ease-in;
 $accent-color: $Turquoise;
 $text-secondary-color: $SpanishGray;
 
-$button-border-color: $accent-color;
+$border-color: $accent-color;
+
+$button-border-color: $border-color;
 $button-active-color: $text-secondary-color;
 
 $navlink-hover-color: $text-secondary-color;
@@ -26,3 +28,26 @@ $text-primary-color-light: $Jet;
 // Dark Theme
 $background-color-dark: $Jet;
 $text-primary-color-dark: $White;
+
+// Breakpoints
+$screen-small: 576px;
+$screen-medium: 768px;
+$screen-large: 992px;
+$screen-extra-large: 1200px;
+$screen-extra-extra-large: 1400px;
+
+$screen-extra-small-max: $screen-small - 1px;
+
+$screen-small-min: $screen-small;
+$screen-small-max: $screen-medium - 1px;
+
+$screen-medium-min: $screen-medium;
+$screen-medium-max: $screen-large - 1px;
+
+$screen-large-min: $screen-large;
+$screen-large-max: $screen-extra-large - 1px;
+
+$screen-extra-large-min: $screen-extra-large;
+$screen-extra-large-max: $screen-extra-extra-large - 1px;
+
+$screen-extra-extra-large-min: $screen-extra-extra-large;

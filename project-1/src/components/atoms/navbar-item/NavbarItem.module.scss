@@ -7,6 +7,12 @@
   padding: 0vh 2vw;
   text-transform: capitalize;
 
+  @media (max-width: $screen-medium-max) {
+    display: block;
+    padding: 0.25em;
+    text-align: center;
+  }
+
   &-link {
     position: relative;
     text-decoration: none;
