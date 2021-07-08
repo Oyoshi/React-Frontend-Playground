@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { ThemeContext, IThemeContext } from "contexts";
+import React from "react";
+import { useThemeContext } from "contexts";
 import styles from "./Typography.module.scss";
 
 interface IText {
@@ -10,7 +10,7 @@ interface IText {
 export type TextFCType = React.FC<IText>;
 
 export const Text: TextFCType = ({ children, inactive = false }) => {
-  const { themePostfix } = useContext<IThemeContext>(ThemeContext);
+  const { themePostfix } = useThemeContext();
 
   return (
     <p

@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { ThemeContext, IThemeContext, ThemePostfix } from "contexts";
+import { ThemeContextProvider } from "contexts";
 import {
   HomePage,
   AboutUsPage,
@@ -12,23 +11,8 @@ import {
 } from "components/pages";
 
 export const App = () => {
-  const [themePostfix, setThemePostfix] = useState<ThemePostfix>("light");
-
-  const switchTheme = () => {
-    if (themePostfix === "light") {
-      setThemePostfix("dark");
-    } else {
-      setThemePostfix("light");
-    }
-  };
-
-  const themeContextProviderValue: IThemeContext = {
-    themePostfix: themePostfix,
-    switchTheme: switchTheme,
-  };
-
   return (
-    <ThemeContext.Provider value={themeContextProviderValue}>
+    <ThemeContextProvider>
       <BrowserRouter>
         <Switch>
           <Route key="HOME" exact path="/" component={HomePage} />
@@ -46,6 +30,6 @@ export const App = () => {
           />
         </Switch>
       </BrowserRouter>
-    </ThemeContext.Provider>
+    </ThemeContextProvider>
   );
 };

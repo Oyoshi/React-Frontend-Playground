@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { ThemeContext, IThemeContext } from "contexts";
+import React from "react";
+import { useThemeContext } from "contexts";
 import { IError } from "./GenericErrorPage.const";
 import { PageTemplate } from "components/templates";
 import Typography from "components/atoms";
@@ -12,7 +12,7 @@ export const GenericErrorPage: React.FC<IError> = ({
   title,
   description,
 }) => {
-  const { themePostfix } = useContext<IThemeContext>(ThemeContext);
+  const { themePostfix } = useThemeContext();
 
   return (
     <PageTemplate>

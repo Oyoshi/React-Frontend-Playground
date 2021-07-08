@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { ThemeContext, IThemeContext } from "contexts";
+import { useThemeContext } from "contexts";
 import styles from "./LinkButton.module.scss";
 
 interface IButton {
@@ -9,7 +9,7 @@ interface IButton {
 }
 
 export const LinkButton: React.FC<IButton> = ({ title, target }) => {
-  const { themePostfix } = useContext<IThemeContext>(ThemeContext);
+  const { themePostfix } = useThemeContext();
 
   return (
     <Link

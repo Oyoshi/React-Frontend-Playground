@@ -2,7 +2,7 @@
 
 ## About
 
-This is a **monorepo** containing projects (not necessarily related) which are some kind of playgrounds to improve my FE dev skills and explore new approaches and trends. In **Table of Contents** section you will find all informations about particular project (purpose, tech stack, what did I learn or what can I do in another way).
+This is a **monorepo** containing projects (not necessarily related) which are some kind of playgrounds to improve my FE dev skills and explore new approaches and trends. In **Table of Contents** section you will find all informations about particular project (purpose, tech stack, what did I learn or what I can do in another way).
 
 ## Table of Contents
 

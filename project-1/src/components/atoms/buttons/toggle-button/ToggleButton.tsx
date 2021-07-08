@@ -1,11 +1,11 @@
-import { useState, useContext } from "react";
-import { ThemeContext, IThemeContext } from "contexts";
+import { useState } from "react";
+import { useThemeContext } from "contexts";
 import Typography from "components/atoms";
 import styles from "./ToggleButton.module.scss";
 
 export const ToggleButton = () => {
   const [toggle, setToggle] = useState<boolean>(false);
-  const { switchTheme } = useContext<IThemeContext>(ThemeContext);
+  const { switchTheme } = useThemeContext();
 
   const triggerToggle = () => {
     setToggle(!toggle);

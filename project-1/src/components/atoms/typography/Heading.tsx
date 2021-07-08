@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { ThemeContext, IThemeContext } from "contexts";
+import React from "react";
+import { useThemeContext } from "contexts";
 import styles from "./Typography.module.scss";
 
 interface IHeading {
@@ -10,7 +10,7 @@ interface IHeading {
 export type HeadingFCType = React.FC<IHeading>;
 
 export const Heading: HeadingFCType = ({ level, children }) => {
-  const { themePostfix } = useContext<IThemeContext>(ThemeContext);
+  const { themePostfix } = useThemeContext();
 
   switch (level) {
     case 1:

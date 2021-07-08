@@ -1,6 +1,5 @@
-import { useContext } from "react";
 import Typography, { LinkButton } from "components/atoms";
-import { ThemeContext, IThemeContext } from "contexts";
+import { useThemeContext } from "contexts";
 import { PageTemplate } from "components/templates";
 import commonStyles from "../common/Page.module.scss";
 import homePageStyles from "./HomePage.module.scss";
@@ -8,7 +7,7 @@ import homePageStyles from "./HomePage.module.scss";
 const { Heading, Accent } = Typography;
 
 export const HomePage = () => {
-  const { themePostfix } = useContext<IThemeContext>(ThemeContext);
+  const { themePostfix } = useThemeContext();
 
   return (
     <PageTemplate>

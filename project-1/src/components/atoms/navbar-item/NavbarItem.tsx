@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { ThemeContext, IThemeContext } from "contexts";
+import { useThemeContext } from "contexts";
 import styles from "./NavbarItem.module.scss";
 
 export interface INavbarItem {
@@ -11,7 +11,7 @@ export interface INavbarItem {
 export type NavbarItemFCType = React.FC<INavbarItem>;
 
 export const NavbarItem: NavbarItemFCType = ({ title, target }) => {
-  const { themePostfix } = useContext<IThemeContext>(ThemeContext);
+  const { themePostfix } = useThemeContext();
 
   return (
     <li className={styles["navbar__item"]}>

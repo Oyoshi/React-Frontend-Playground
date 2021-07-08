@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { ThemeContext, IThemeContext } from "contexts";
+import React, { useState } from "react";
+import { useThemeContext } from "contexts";
 import {
   Logo,
   NavbarItem,
@@ -13,7 +13,7 @@ type NavbarType = React.FC & {
 };
 
 const Navbar: NavbarType = ({ children }) => {
-  const { themePostfix } = useContext<IThemeContext>(ThemeContext);
+  const { themePostfix } = useThemeContext();
   const [isMobileMenuHidden, setIsMobileMenuHidden] = useState<boolean>(true);
 
   const toggleisMobileMenuHidden = () =>

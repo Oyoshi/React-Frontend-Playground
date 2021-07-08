@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { ThemeContext, IThemeContext } from "contexts";
+import React from "react";
+import { useThemeContext } from "contexts";
 import styles from "./MenuButton.module.scss";
 
 interface IMenuButton {
@@ -7,7 +7,7 @@ interface IMenuButton {
 }
 
 export const MenuButton: React.FC<IMenuButton> = ({ onClickHandler }) => {
-  const { themePostfix } = useContext<IThemeContext>(ThemeContext);
+  const { themePostfix } = useThemeContext();
 
   return (
     <button

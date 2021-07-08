@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import Typography from "components/atoms";
-import { ThemeContext, IThemeContext } from "contexts";
+import { useThemeContext } from "contexts";
 import { PageTemplate } from "components/templates";
 import styles from "../common/Page.module.scss";
 
 const { Heading, Accent } = Typography;
 
 export const ContactPage = () => {
-  const { themePostfix } = useContext<IThemeContext>(ThemeContext);
+  const { themePostfix } = useThemeContext();
 
   return (
     <PageTemplate>
