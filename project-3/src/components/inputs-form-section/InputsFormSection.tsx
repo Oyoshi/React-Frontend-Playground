@@ -1,70 +1,44 @@
 import React from "react";
-import { Row, Col, Form, Input, Select, DatePicker, Button } from "antd";
+import { Row, Col, Form, Select, DatePicker } from "antd";
+import "./InputsFormSection.less";
 
 const { RangePicker } = DatePicker;
 
+const layout = {
+  labelCol: {
+    span: 8,
+  },
+  wrapperCol: {
+    span: 16,
+  },
+};
+
 export const InputsFormSection: React.FC = () => {
   return (
-    <section className="site-layout-content">
-      <Row justify="center" align="middle">
-        <Col sm={24} md={8}>
-          <Form>
-            <Form.Item label="Base currency" style={{ marginBottom: 0 }}>
-              <Form.Item
-                name="year"
-                rules={[{ required: true }]}
-                style={{
-                  display: "inline-block",
-                  width: `calc(50% - 8px)`,
-                }}
-              >
-                <Input type="number" />
-              </Form.Item>
-              <Form.Item
-                name="month"
-                rules={[{ required: true }]}
-                style={{
-                  display: "inline-block",
-                  width: "calc(50% - 8px)",
-                  margin: "0 8px",
-                }}
-              >
-                <Select />
-              </Form.Item>
+    <section className="inputs-form__section">
+      <Form {...layout} labelAlign="right">
+        <Row justify="center" align="middle">
+          <Col lg={8} sm={24}>
+            <Form.Item label="Base currency">
+              <Select>
+                <Select.Option value={"xxx"}>xxx</Select.Option>
+                <Select.Option value={"yyy"}>yyy</Select.Option>
+                <Select.Option value={"zzz"}>zzz</Select.Option>
+              </Select>
             </Form.Item>
-            <Form.Item label="Quote currency" style={{ marginBottom: 0 }}>
-              <Form.Item
-                name="year"
-                rules={[{ required: true }]}
-                style={{
-                  display: "inline-block",
-                  width: "calc(50% - 8px)",
-                }}
-              >
-                <Input placeholder="Input birth year" />
-              </Form.Item>
-              <Form.Item
-                name="month"
-                rules={[{ required: true }]}
-                style={{
-                  display: "inline-block",
-                  width: "calc(50% - 8px)",
-                  margin: "0 8px",
-                }}
-              >
-                <Select />
-              </Form.Item>
+            <Form.Item label="Quote currency">
+              <Select>
+                <Select.Option value={"xxx"}>aaa</Select.Option>
+                <Select.Option value={"bbb"}>bbb</Select.Option>
+                <Select.Option value={"ccc"}>ccc</Select.Option>
+              </Select>
             </Form.Item>
-            <Form.Item
-              label="Date range (optional)"
-              style={{ marginBottom: 0 }}
-            >
+            <Form.Item label="Date range (optional)">
               <RangePicker />
             </Form.Item>
-            <Button type="primary">Calculate</Button>
-          </Form>
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      </Form>
     </section>
   );
 };
