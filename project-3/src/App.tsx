@@ -3,8 +3,8 @@ import { Layout, Divider } from "antd";
 import {
   NullableFormFields,
   InputsFormSection,
-} from "components/inputs-form-section";
-import { ResultSection } from "components/result-section";
+  ResultSection,
+} from "components";
 
 const { Content } = Layout;
 

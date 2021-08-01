@@ -3,6 +3,7 @@ import { Moment } from "moment";
 import { Spin, Typography } from "antd";
 import { TIMESERIES_URL } from "common";
 import { useAxios } from "hooks";
+import "./ResultSection.less";
 
 const { Title } = Typography;
 
@@ -31,7 +32,7 @@ export const ResultSection: React.FC<ResultSectionProps> = ({
   const { isLoading, data, error } = useAxios(url, "get", [url]);
 
   return (
-    <section>
+    <section className="result__section">
       {error ? (
         <Title>Error</Title>
       ) : (
