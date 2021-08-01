@@ -1,39 +1,37 @@
 import React from "react";
-import { Row, Col, Form, Select, DatePicker, Button, Spin } from "antd";
-import { Moment } from "moment";
+import {
+  Row,
+  Col,
+  Form,
+  Select,
+  DatePicker,
+  Button,
+  Spin,
+  Typography,
+} from "antd";
 import { useAxios } from "hooks";
 import { ALL_CURRENCIES_URL } from "common";
+import { convertDictIntoArray } from "utils";
+import {
+  FORM_LAYOUT,
+  ERROR_MESSAGE_BASE_CURRENCY_REQUIRED,
+  ERROR_MESSAGE_QUOTE_CURRENCY_REQUIRED,
+  ERROR_MESSAGE_INVALID_DATE_RANGE,
+} from "./InputsFormSection.const";
+import {
+  InputsormSectionProps,
+  CurrenciesDictType,
+  CurreniesDictEntryType,
+  FormFields,
+} from "./InputsFormSection.types";
+import {
+  requiredField,
+  dateRangeValidator,
+} from "./InputsFormSection.validators";
 import "./InputsFormSection.less";
 
 const { RangePicker } = DatePicker;
-
-export type FormFields = {
-  baseCurrency: string;
-  quoteCurrency: string;
-  dateRange?: [Moment, Moment];
-};
-
-export type NullableFormFields = FormFields | null;
-
-type InputsormSectionProps = {
-  callback: (fields: FormFields) => void;
-};
-
-type CurrenciesDictType = {
-  shortName: string;
-  FullName: string;
-};
-
-type CurreniesDictEntryType = [string, string];
-
-const formLayout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
+const { Title } = Typography;
 
 export const InputsFormSection: React.FC<InputsormSectionProps> = ({
   callback,
@@ -44,72 +42,54 @@ export const InputsFormSection: React.FC<InputsormSectionProps> = ({
     error: currenciesError,
   } = useAxios<CurrenciesDictType>(ALL_CURRENCIES_URL);
 
-  const mapCurrencies = (currenciesData: CurrenciesDictType | null) => {
-    return currenciesData
-      ? Object.entries(currenciesData).map(
-          ([shortName, FullName]: CurreniesDictEntryType) => {
-            return (
-              <Select.Option value={shortName} key={shortName}>
-                {FullName}
-              </Select.Option>
-            );
-          }
-        )
-      : [];
+  const generateSelectionOption = (entries: CurreniesDictEntryType[]) => {
+    return entries.map(([shortName, fullName]: CurreniesDictEntryType) => (
+      <Select.Option value={shortName} key={shortName}>
+        {fullName}
+      </Select.Option>
+    ));
   };
+
+  const mappedCurrencies = generateSelectionOption(
+    convertDictIntoArray(currencies)
+  );
 
   const onFinish = (fields: FormFields) => callback(fields);
 
   return (
     <section className="inputs-form__section">
       {currenciesError ? (
-        <h1>Error</h1>
+        <Title>Error</Title>
       ) : (
         <Spin spinning={currenciesIsLoading}>
-          <Form {...formLayout} labelAlign="right" onFinish={onFinish}>
+          <Form
+            {...FORM_LAYOUT}
+            initialValues={{ baseCurrency: "EUR", quoteCurrency: "USD" }}
+            labelAlign="right"
+            onFinish={onFinish}
+          >
             <Row justify="center" align="middle">
               <Col lg={8} sm={24}>
                 <Form.Item
                   name="baseCurrency"
                   label="Base Currency"
                   required
-                  rules={[
-                    {
-                      required: true,
-                      message: "Please select a base currency!",
-                    },
-                  ]}
+                  rules={[requiredField(ERROR_MESSAGE_BASE_CURRENCY_REQUIRED)]}
                 >
-                  <Select>{mapCurrencies(currencies)}</Select>
+                  <Select>{mappedCurrencies}</Select>
                 </Form.Item>
                 <Form.Item
                   name="quoteCurrency"
                   label="Quote Currency"
                   required
-                  rules={[
-                    {
-                      required: true,
-                      message: "Please select a quote currency!",
-                    },
-                  ]}
+                  rules={[requiredField(ERROR_MESSAGE_QUOTE_CURRENCY_REQUIRED)]}
                 >
-                  <Select>{mapCurrencies(currencies)}</Select>
+                  <Select>{mappedCurrencies}</Select>
                 </Form.Item>
                 <Form.Item
                   name="dateRange"
                   label="Date Range (optional)"
-                  rules={[
-                    {
-                      validator(_: any, value: Moment[]) {
-                        return value === undefined ||
-                          (value.length === 2 && value[0] <= value[1])
-                          ? Promise.resolve()
-                          : Promise.reject(
-                              "Please choose a proper begin and end dates!"
-                            );
-                      },
-                    },
-                  ]}
+                  rules={[dateRangeValidator(ERROR_MESSAGE_INVALID_DATE_RANGE)]}
                 >
                   <RangePicker />
                 </Form.Item>

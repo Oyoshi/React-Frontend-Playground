@@ -1,1 +1,2 @@
-export * from "./InputsFormSection";
+export { InputsFormSection } from "./InputsFormSection";
+export * from "./InputsFormSection.types";

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Moment } from "moment";
+import { Spin, Typography } from "antd";
+import { TIMESERIES_URL } from "common";
 import { useAxios } from "hooks";
-import { getLatestURL } from "./ResultSection.const";
+
+const { Title } = Typography;
 
 type ResultSectionProps = {
   baseCurrency?: string;
@@ -14,22 +17,29 @@ export const ResultSection: React.FC<ResultSectionProps> = ({
   quoteCurrency,
   dateRange,
 }) => {
-  const [latestURL, setLatestURL] = useState<string | null>(null);
+  const [url, setUrl] = useState<string>(TIMESERIES_URL("EUR", "USD"));
 
   useEffect(() => {
     if (baseCurrency && quoteCurrency) {
-      setLatestURL(getLatestURL(baseCurrency, quoteCurrency));
+      const beginDate = dateRange && dateRange[0];
+      const endDate = dateRange && dateRange[1];
+      setUrl(TIMESERIES_URL(baseCurrency, quoteCurrency, beginDate, endDate));
     }
-  }, [baseCurrency, quoteCurrency]);
+  }, [baseCurrency, quoteCurrency, dateRange]);
 
-  //const { isLoading, data, error } = useAxios(latestURL, 'get', [latestURL]);
-  //console.log(isLoading, data, error, latestURL);
+  // TODO - use data in d3js chart
+  const { isLoading, data, error } = useAxios(url, "get", [url]);
 
   return (
     <section>
-      <h1>Dupa</h1>
-      <h1>{baseCurrency}</h1>
-      <h1>{quoteCurrency}</h1>
+      {error ? (
+        <Title>Error</Title>
+      ) : (
+        <Spin spinning={isLoading}>
+          <h1>{baseCurrency}</h1>
+          <h1>{quoteCurrency}</h1>
+        </Spin>
+      )}
     </section>
   );
 };
