@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Moment } from "moment";
 import { Spin, Typography } from "antd";
-import { TIMESERIES_URL } from "common";
+import { FormFields } from "components";
+import { TIMESERIES_URL } from "common/fetch-urls";
+import { TimeSeriesCurrenciesType } from "common/types";
 import { useAxios } from "hooks";
+import { TimeSeriesChart } from "./time-series-chart";
 import "./ResultSection.less";
 
 const { Title } = Typography;
 
-type ResultSectionProps = {
-  baseCurrency?: string;
-  quoteCurrency?: string;
-  dateRange?: [Moment, Moment];
-};
+type ResultSectionProps = FormFields;
 
 export const ResultSection: React.FC<ResultSectionProps> = ({
   baseCurrency,
@@ -28,17 +26,19 @@ export const ResultSection: React.FC<ResultSectionProps> = ({
     }
   }, [baseCurrency, quoteCurrency, dateRange]);
 
-  // TODO - use data in d3js chart
-  const { isLoading, data, error } = useAxios(url, "get", [url]);
+  const { isLoading, data, error } = useAxios<TimeSeriesCurrenciesType>(
+    url,
+    "get",
+    [url]
+  );
 
   return (
     <section className="result__section">
       {error ? (
-        <Title>Error</Title>
+        <Title>Something went wrong...</Title>
       ) : (
         <Spin spinning={isLoading}>
-          <h1>{baseCurrency}</h1>
-          <h1>{quoteCurrency}</h1>
+          <TimeSeriesChart inputData={data} quoteCurrency={quoteCurrency} />
         </Spin>
       )}
     </section>

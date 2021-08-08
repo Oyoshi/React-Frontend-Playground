@@ -10,7 +10,7 @@ import {
   Typography,
 } from "antd";
 import { useAxios } from "hooks";
-import { ALL_CURRENCIES_URL } from "common";
+import { ALL_CURRENCIES_URL } from "common/fetch-urls";
 import { convertDictIntoArray } from "utils";
 import {
   FORM_LAYOUT,
@@ -18,12 +18,8 @@ import {
   ERROR_MESSAGE_QUOTE_CURRENCY_REQUIRED,
   ERROR_MESSAGE_INVALID_DATE_RANGE,
 } from "./InputsFormSection.const";
-import {
-  InputsormSectionProps,
-  CurrenciesDictType,
-  CurreniesDictEntryType,
-  FormFields,
-} from "./InputsFormSection.types";
+import { AllCurrenciesType, CurreniesDictEntryType } from "common/types";
+import { FormFields, InputsFormSectionProps } from "./InputsFormSection.types";
 import {
   requiredField,
   dateRangeValidator,
@@ -33,14 +29,14 @@ import "./InputsFormSection.less";
 const { RangePicker } = DatePicker;
 const { Title } = Typography;
 
-export const InputsFormSection: React.FC<InputsormSectionProps> = ({
+export const InputsFormSection: React.FC<InputsFormSectionProps> = ({
   callback,
 }) => {
   const {
     isLoading: currenciesIsLoading,
     data: currencies,
     error: currenciesError,
-  } = useAxios<CurrenciesDictType>(ALL_CURRENCIES_URL);
+  } = useAxios<AllCurrenciesType>(ALL_CURRENCIES_URL);
 
   const generateSelectionOption = (entries: CurreniesDictEntryType[]) => {
     return entries.map(([shortName, fullName]: CurreniesDictEntryType) => (
@@ -51,7 +47,7 @@ export const InputsFormSection: React.FC<InputsormSectionProps> = ({
   };
 
   const mappedCurrencies = generateSelectionOption(
-    convertDictIntoArray(currencies)
+    convertDictIntoArray<AllCurrenciesType>(currencies)
   );
 
   const onFinish = (fields: FormFields) => callback(fields);
@@ -59,7 +55,7 @@ export const InputsFormSection: React.FC<InputsormSectionProps> = ({
   return (
     <section className="inputs-form__section">
       {currenciesError ? (
-        <Title>Error</Title>
+        <Title>Something went wrong...</Title>
       ) : (
         <Spin spinning={currenciesIsLoading}>
           <Form

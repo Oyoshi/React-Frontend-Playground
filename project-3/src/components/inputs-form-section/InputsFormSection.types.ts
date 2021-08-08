@@ -8,13 +8,6 @@ export type FormFields = {
 
 export type NullableFormFields = FormFields | null;
 
-export type CurrenciesDictType = {
-  shortName: string;
-  FullName: string;
-};
-
-export type CurreniesDictEntryType = [string, string];
-
-export type InputsormSectionProps = {
+export type InputsFormSectionProps = {
   callback: (fields: FormFields) => void;
 };
