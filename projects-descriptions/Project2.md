@@ -4,7 +4,7 @@
 
 Combine design system with external API and d3js charts library to visualize currencies data.
 
-## Tech Stack 🛠️
+## Tech Stack :hammer_and_wrench:
 
 - Bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 - Use [Ant Design](https://ant.design/) as ready design system

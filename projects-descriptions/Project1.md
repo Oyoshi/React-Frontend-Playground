@@ -4,7 +4,7 @@
 
 Create mockup website of a Software House with Dark/Light theme switching.
 
-## Tech Stack 🛠️
+## Tech Stack :hammer_and_wrench:
 
 - Bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 - Add custom stylings with _sass modules_

@@ -6,11 +6,10 @@ This is a **monorepo** containing projects (not necessarily related) which are s
 
 ## Table of Contents
 
-1.  [Project 1 - Dark/Light theme Software House Website](./projects-description/Project1.md)
-2.  [Project 2 - no-name](./projects-description/Project2.md)
-3.  [Project 3 - Simple Forex App](./projects-description/Project3.md)
+1.  [Project 1 - Dark/Light theme Software House Website](./projects-descriptions/Project2.md)
+2.  [Project 2 - Simple Forex App](./projects-descriptions/Project2.md)
 
-## Setup, Build & Run 👷
+## Setup, Build & Run :construction_worker:
 
 ### How to run a project in dev mode?
 
