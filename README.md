@@ -6,7 +6,7 @@ This is a **monorepo** containing projects (not necessarily related) which are s
 
 ## Table of Contents
 
-1.  [Project 1 - Dark/Light theme Software House Website](./projects-descriptions/Project2.md)
+1.  [Project 1 - Dark/Light theme Software House Website](./projects-descriptions/Project1.md)
 2.  [Project 2 - Simple Forex App](./projects-descriptions/Project2.md)
 
 ## Setup, Build & Run :construction_worker:
