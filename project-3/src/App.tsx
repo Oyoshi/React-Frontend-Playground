@@ -1,10 +1,7 @@
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import RegisterForm from "components/register-form";
-import CssBaseline from "@mui/material/CssBaseline";
+import { AppBar, Toolbar, Typography, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import CustomTheme from "styles/custom-theme";
+import RegisterForm from "components/register-form";
 
 const App = () => {
   return (

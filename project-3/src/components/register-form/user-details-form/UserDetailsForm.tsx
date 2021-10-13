@@ -1,6 +1,5 @@
 import { FC } from "react";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import { Typography, Button } from "@mui/material";
 
 interface IUserDetailsForm {
   prevStep: any;
