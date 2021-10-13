@@ -10,7 +10,10 @@ const UserContactDetailsForm: FC<IUserContactDetailsForm> = ({ prevStep }) => {
   return (
     <>
       <Typography variant="h3">User Contact Details</Typography>
-      <Button onClick={prevStep}>Back</Button>
+      <Button onClick={prevStep} variant="outlined">
+        Back
+      </Button>
+      <Button variant="contained">Submit</Button>
     </>
   );
 };

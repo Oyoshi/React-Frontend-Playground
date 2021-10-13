@@ -3,16 +3,20 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 interface IUserDetailsForm {
-  nextStep: any;
   prevStep: any;
+  nextStep: any;
 }
 
-const UserDetailsForm: FC<IUserDetailsForm> = ({ nextStep, prevStep }) => {
+const UserDetailsForm: FC<IUserDetailsForm> = ({ prevStep, nextStep }) => {
   return (
     <>
       <Typography variant="h3">User Details Info</Typography>
-      <Button onClick={nextStep}>Next</Button>
-      <Button onClick={prevStep}>Back</Button>
+      <Button onClick={prevStep} variant="outlined">
+        Back
+      </Button>
+      <Button onClick={nextStep} variant="contained">
+        Next
+      </Button>
     </>
   );
 };

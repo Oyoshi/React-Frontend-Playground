@@ -10,7 +10,9 @@ const UserBasicInfoForm: FC<IUserBasicInfoForm> = ({ nextStep }) => {
   return (
     <>
       <Typography variant="h3">User Basic Info</Typography>
-      <Button onClick={nextStep}>Next</Button>
+      <Button onClick={nextStep} variant="contained">
+        Next
+      </Button>
     </>
   );
 };

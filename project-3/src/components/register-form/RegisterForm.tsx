@@ -6,15 +6,15 @@ import UserContactDetailsForm from "./user-contact-details-form";
 const RegisterForm = () => {
   const [step, setStep] = useState<number>(1);
 
-  const nextStep = () => setStep(step + 1);
-
   const prevStep = () => setStep(step - 1);
+
+  const nextStep = () => setStep(step + 1);
 
   switch (step) {
     case 1:
       return <UserBasicInfoForm nextStep={nextStep} />;
     case 2:
-      return <UserDetailsForm nextStep={nextStep} prevStep={prevStep} />;
+      return <UserDetailsForm prevStep={prevStep} nextStep={nextStep} />;
     case 3:
       return <UserContactDetailsForm prevStep={prevStep} />;
     default:
