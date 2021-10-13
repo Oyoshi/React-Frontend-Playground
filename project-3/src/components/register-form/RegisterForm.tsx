@@ -10,13 +10,29 @@ const RegisterForm = () => {
 
   const nextStep = () => setStep(step + 1);
 
+  const handleChange = (input: any) => (e: any) =>
+    console.log(input, e.target.value);
+
   switch (step) {
     case 1:
-      return <UserBasicInfoForm nextStep={nextStep} />;
+      return (
+        <UserBasicInfoForm nextStep={nextStep} handleChange={handleChange} />
+      );
     case 2:
-      return <UserDetailsForm prevStep={prevStep} nextStep={nextStep} />;
+      return (
+        <UserDetailsForm
+          prevStep={prevStep}
+          nextStep={nextStep}
+          handleChange={handleChange}
+        />
+      );
     case 3:
-      return <UserContactDetailsForm prevStep={prevStep} />;
+      return (
+        <UserContactDetailsForm
+          prevStep={prevStep}
+          handleChange={handleChange}
+        />
+      );
     default:
       return null;
   }
