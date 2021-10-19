@@ -2,10 +2,11 @@ import { FC } from "react";
 import { Typography, Button } from "@mui/material";
 import { generateTextFields } from "common/utils";
 import { USER_CONTACT_DETAILS_TEXT_FIELDS } from "./UserContactDetailsForm.const";
+import { HandleStepsFunction, HandleInputsFunction } from "common/types";
 
 interface IUserContactDetailsForm {
-  prevStep: any;
-  handleChange: any;
+  prevStep: HandleStepsFunction;
+  handleChange: HandleInputsFunction;
 }
 
 const UserContactDetailsForm: FC<IUserContactDetailsForm> = ({

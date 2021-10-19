@@ -2,10 +2,11 @@ import { FC } from "react";
 import { Typography, Button } from "@mui/material";
 import { generateTextFields } from "common/utils";
 import { USER_BASIC_INFO_TEXT_FIELDS } from "./UserBasicInfoForm.const";
+import { HandleStepsFunction, HandleInputsFunction } from "common/types";
 
 interface IUserBasicInfoForm {
-  nextStep: any;
-  handleChange: any;
+  nextStep: HandleStepsFunction;
+  handleChange: HandleInputsFunction;
 }
 
 const UserBasicInfoForm: FC<IUserBasicInfoForm> = ({
