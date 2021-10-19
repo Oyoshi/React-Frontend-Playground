@@ -1,24 +1,30 @@
 import { FC } from "react";
 import { Typography, Button } from "@mui/material";
 import { generateTextFields } from "common/utils";
-import { USER_DETAILS_TEXT_FIELDS } from "./UserDetailsForm.const";
-import { HandleStepsFunction, HandleInputsFunction } from "common/types";
+import { USER_ADDRESS_TEXT_FIELDS } from "./UserAddressForm.const";
+import {
+  HandleStepsFunction,
+  HandleInputsFunction,
+  Inputs,
+} from "common/types";
 
-interface IUserDetailsForm {
+interface IUserAddressForm {
   prevStep: HandleStepsFunction;
   nextStep: HandleStepsFunction;
   handleChange: HandleInputsFunction;
+  inputsValues: Inputs;
 }
 
-const UserDetailsForm: FC<IUserDetailsForm> = ({
+const UserAddressForm: FC<IUserAddressForm> = ({
   prevStep,
   nextStep,
   handleChange,
+  inputsValues,
 }) => {
   return (
     <>
       <Typography variant="h3">User Details Info</Typography>
-      {generateTextFields(USER_DETAILS_TEXT_FIELDS, handleChange)}
+      {generateTextFields(USER_ADDRESS_TEXT_FIELDS, handleChange, inputsValues)}
       <Button onClick={prevStep} variant="outlined">
         Back
       </Button>
@@ -29,4 +35,4 @@ const UserDetailsForm: FC<IUserDetailsForm> = ({
   );
 };
 
-export default UserDetailsForm;
+export default UserAddressForm;

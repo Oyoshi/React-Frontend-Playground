@@ -1,11 +1,11 @@
 import { AppBar, Toolbar, Typography, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import CustomTheme from "styles/custom-theme";
-import RegisterForm from "components/register-form";
+import customTheme from "styles/customTheme";
+import RegisterForm from "components/RegisterForm";
 
 const App = () => {
   return (
-    <ThemeProvider theme={CustomTheme}>
+    <ThemeProvider theme={customTheme}>
       <CssBaseline />
       <AppBar position="static">
         <Toolbar>

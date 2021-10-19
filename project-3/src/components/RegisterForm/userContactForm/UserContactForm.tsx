@@ -1,22 +1,28 @@
 import { FC } from "react";
 import { Typography, Button } from "@mui/material";
 import { generateTextFields } from "common/utils";
-import { USER_CONTACT_DETAILS_TEXT_FIELDS } from "./UserContactDetailsForm.const";
-import { HandleStepsFunction, HandleInputsFunction } from "common/types";
+import { USER_CONTACT_TEXT_FIELDS } from "./UserContactForm.const";
+import {
+  HandleStepsFunction,
+  HandleInputsFunction,
+  Inputs,
+} from "common/types";
 
-interface IUserContactDetailsForm {
+interface IUserContactForm {
   prevStep: HandleStepsFunction;
   handleChange: HandleInputsFunction;
+  inputsValues: Inputs;
 }
 
-const UserContactDetailsForm: FC<IUserContactDetailsForm> = ({
+const UserContactForm: FC<IUserContactForm> = ({
   prevStep,
   handleChange,
+  inputsValues,
 }) => {
   return (
     <>
       <Typography variant="h3">User Contact Details</Typography>
-      {generateTextFields(USER_CONTACT_DETAILS_TEXT_FIELDS, handleChange)}
+      {generateTextFields(USER_CONTACT_TEXT_FIELDS, handleChange, inputsValues)}
       <Button onClick={prevStep} variant="outlined">
         Back
       </Button>
@@ -25,4 +31,4 @@ const UserContactDetailsForm: FC<IUserContactDetailsForm> = ({
   );
 };
 
-export default UserContactDetailsForm;
+export default UserContactForm;

@@ -1,4 +1,4 @@
-import React from "react";
+import { MouseEvent, ChangeEvent } from "react";
 
-export type ButtonMouseEvent = React.MouseEvent<HTMLButtonElement>;
-export type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
+export type ButtonMouseEvent = MouseEvent<HTMLButtonElement>;
+export type InputChangeEvent = ChangeEvent<HTMLInputElement>;
