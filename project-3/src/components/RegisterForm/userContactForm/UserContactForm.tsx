@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Typography, Button } from "@mui/material";
+import { Typography, Button, FormControl, Box } from "@mui/material";
 import { generateTextFields } from "common/utils";
 import { USER_CONTACT_TEXT_FIELDS } from "./UserContactForm.const";
 import {
@@ -20,14 +20,24 @@ const UserContactForm: FC<IUserContactForm> = ({
   inputsValues,
 }) => {
   return (
-    <>
-      <Typography variant="h3">User Contact Details</Typography>
-      {generateTextFields(USER_CONTACT_TEXT_FIELDS, handleChange, inputsValues)}
-      <Button onClick={prevStep} variant="outlined">
-        Back
-      </Button>
-      <Button variant="contained">Submit</Button>
-    </>
+    <Box sx={{ mt: 5, textAlign: "center" }}>
+      <FormControl>
+        <Typography variant="h3">User Contact Details</Typography>
+        {generateTextFields(
+          USER_CONTACT_TEXT_FIELDS,
+          handleChange,
+          inputsValues
+        )}
+        <Box display="flex" justifyContent="space-between">
+          <Button onClick={prevStep} variant="outlined" fullWidth>
+            Back
+          </Button>
+          <Button variant="contained" fullWidth>
+            Submit
+          </Button>
+        </Box>
+      </FormControl>
+    </Box>
   );
 };
 

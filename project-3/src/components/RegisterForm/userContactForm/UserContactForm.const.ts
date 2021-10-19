@@ -7,12 +7,15 @@ export const USER_CONTACT_TEXT_FIELDS: TextFieldProps[] = [
     label: "Phone Number",
     margin: "normal",
     fullWidth: true,
+    required: true,
   },
   {
     id: "email",
+    type: "email",
     placeholder: "Enter Your Email",
     label: "Email",
     margin: "normal",
     fullWidth: true,
+    required: true,
   },
 ];

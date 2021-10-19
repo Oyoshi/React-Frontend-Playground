@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Typography, Button } from "@mui/material";
+import { Typography, Button, FormControl, Box } from "@mui/material";
 import { generateTextFields } from "common/utils";
 import { USER_BASIC_INFO_TEXT_FIELDS } from "./UserBasicInfoForm.const";
 import {
@@ -20,17 +20,21 @@ const UserBasicInfoForm: FC<IUserBasicInfoForm> = ({
   inputsValues,
 }) => {
   return (
-    <>
-      <Typography variant="h3">User Basic Info</Typography>
-      {generateTextFields(
-        USER_BASIC_INFO_TEXT_FIELDS,
-        handleChange,
-        inputsValues
-      )}
-      <Button onClick={nextStep} variant="contained">
-        Next
-      </Button>
-    </>
+    <Box sx={{ mt: 5, textAlign: "center" }}>
+      <FormControl>
+        <Typography variant="h3">User Basic Info</Typography>
+        {generateTextFields(
+          USER_BASIC_INFO_TEXT_FIELDS,
+          handleChange,
+          inputsValues
+        )}
+        <Box display="flex" justifyContent="space-between">
+          <Button onClick={nextStep} variant="contained" fullWidth>
+            Next
+          </Button>
+        </Box>
+      </FormControl>
+    </Box>
   );
 };
 

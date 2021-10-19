@@ -7,6 +7,7 @@ export const USER_BASIC_INFO_TEXT_FIELDS: TextFieldProps[] = [
     label: "First Name",
     margin: "normal",
     fullWidth: true,
+    required: true,
   },
   {
     id: "lastName",
@@ -14,5 +15,6 @@ export const USER_BASIC_INFO_TEXT_FIELDS: TextFieldProps[] = [
     label: "Last Name",
     margin: "normal",
     fullWidth: true,
+    required: true,
   },
 ];
