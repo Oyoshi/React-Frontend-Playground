@@ -1,3 +1,3 @@
-import SuccessPage from "./successPage";
+import SuccessPage from "./SuccessPage";
 
 export default SuccessPage;

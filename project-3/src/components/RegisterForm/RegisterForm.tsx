@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { FC, useState } from "react";
 import { isEmpty } from "lodash";
+import { Box, Stepper, Step, StepLabel } from "@mui/material";
 import UserBasicInfoForm from "./userBasicInfoForm";
 import UserAddressForm from "./userAddressForm";
 import UserContactForm from "./userContactForm";
@@ -10,12 +11,13 @@ import {
   ButtonMouseEvent,
   Inputs,
 } from "common/types";
+import { STEPS } from "./RegisterForm.const";
 
 const phoneUtil =
   require("google-libphonenumber").PhoneNumberUtil.getInstance();
 
-const RegisterForm = () => {
-  const [currentStep, setCurrentStep] = useState<number>(1);
+const RegisterForm: FC = () => {
+  const [currentStep, setCurrentStep] = useState<number>(0);
   const [inputsValues, updateInputsValues] = useState<Inputs>({
     firstName: "",
     lastName: "",
@@ -76,15 +78,15 @@ const RegisterForm = () => {
 
   const prevStep: HandleStepsFunction = (e: ButtonMouseEvent) => {
     e.preventDefault();
-    if (currentStep === 2 && !validateAddressForm()) return;
-    if (currentStep === 3 && !validateContactForm()) return;
+    if (currentStep === 1 && !validateAddressForm()) return;
+    if (currentStep === 2 && !validateContactForm()) return;
     setCurrentStep(currentStep - 1);
   };
 
   const nextStep: HandleStepsFunction = (e: ButtonMouseEvent) => {
     e.preventDefault();
-    if (currentStep === 1 && !validateBasicInfoForm()) return;
-    if (currentStep === 2 && !validateAddressForm()) return;
+    if (currentStep === 0 && !validateBasicInfoForm()) return;
+    if (currentStep === 1 && !validateAddressForm()) return;
     setCurrentStep(currentStep + 1);
   };
 
@@ -99,38 +101,67 @@ const RegisterForm = () => {
     setCurrentStep(currentStep + 1);
   };
 
+  const StepBar = () => (
+    <Stepper
+      activeStep={currentStep}
+      sx={{ width: "80%", margin: "24px auto" }}
+    >
+      {STEPS.map((label, index) => {
+        return (
+          <Step completed={index < currentStep} key={label}>
+            <StepLabel>{label}</StepLabel>
+          </Step>
+        );
+      })}
+    </Stepper>
+  );
+
   switch (currentStep) {
+    case 0:
+      return (
+        <Box>
+          <StepBar />
+          <UserBasicInfoForm
+            nextStep={nextStep}
+            handleChange={handleChange}
+            inputsValues={inputsValues}
+            errors={errors}
+          />
+        </Box>
+      );
     case 1:
       return (
-        <UserBasicInfoForm
-          nextStep={nextStep}
-          handleChange={handleChange}
-          inputsValues={inputsValues}
-          errors={errors}
-        />
+        <Box>
+          <StepBar />
+          <UserAddressForm
+            prevStep={prevStep}
+            nextStep={nextStep}
+            handleChange={handleChange}
+            inputsValues={inputsValues}
+            errors={errors}
+          />
+        </Box>
       );
     case 2:
       return (
-        <UserAddressForm
-          prevStep={prevStep}
-          nextStep={nextStep}
-          handleChange={handleChange}
-          inputsValues={inputsValues}
-          errors={errors}
-        />
+        <Box>
+          <StepBar />
+          <UserContactForm
+            prevStep={prevStep}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            inputsValues={inputsValues}
+            errors={errors}
+          />
+        </Box>
       );
     case 3:
       return (
-        <UserContactForm
-          prevStep={prevStep}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          inputsValues={inputsValues}
-          errors={errors}
-        />
+        <Box>
+          <StepBar />
+          <SuccessPage />
+        </Box>
       );
-    case 4:
-      return <SuccessPage />;
     default:
       return null;
   }

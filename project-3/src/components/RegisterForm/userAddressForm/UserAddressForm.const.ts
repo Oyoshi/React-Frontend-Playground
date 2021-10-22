@@ -23,5 +23,3 @@ export const USER_ADDRESS_TEXT_FIELDS: TextFieldProps[] = [
     fullWidth: true,
   },
 ];
-
-export const TITLE = "User Details Info";

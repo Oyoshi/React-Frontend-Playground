@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { Typography, Button, FormControl, Box } from "@mui/material";
+import { Button, FormControl, Box } from "@mui/material";
 import { generateTextFields } from "common/utils";
-import { USER_ADDRESS_TEXT_FIELDS, TITLE } from "./UserAddressForm.const";
+import { USER_ADDRESS_TEXT_FIELDS } from "./UserAddressForm.const";
 import {
   PREVIOUS_STEP_BUTTON_TITLE,
   NEXT_STEP_BUTTON_TITLE,
@@ -30,7 +30,6 @@ const UserAddressForm: FC<IUserAddressForm> = ({
   return (
     <Box sx={{ mt: 5, textAlign: "center" }}>
       <FormControl>
-        <Typography variant="h3">{TITLE}</Typography>
         {generateTextFields(
           USER_ADDRESS_TEXT_FIELDS,
           handleChange,

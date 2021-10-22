@@ -1,5 +1,5 @@
 import { Typography, Box } from "@mui/material";
-import { TITLE } from "./successPage.const";
+import { TITLE } from "./SuccessPage.const";
 
 const SuccessPage = () => (
   <Box sx={{ mt: 5, textAlign: "center" }}>

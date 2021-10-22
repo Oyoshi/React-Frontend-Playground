@@ -18,5 +18,3 @@ export const USER_BASIC_INFO_TEXT_FIELDS: TextFieldProps[] = [
     required: true,
   },
 ];
-
-export const TITLE = "User Basic Info";
