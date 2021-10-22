@@ -11,13 +11,17 @@ import {
 interface IUserContactForm {
   prevStep: HandleStepsFunction;
   handleChange: HandleInputsFunction;
+  handleSubmit: any;
   inputsValues: Inputs;
+  errors: Record<string, boolean>;
 }
 
 const UserContactForm: FC<IUserContactForm> = ({
   prevStep,
   handleChange,
+  handleSubmit,
   inputsValues,
+  errors,
 }) => {
   return (
     <Box sx={{ mt: 5, textAlign: "center" }}>
@@ -26,13 +30,19 @@ const UserContactForm: FC<IUserContactForm> = ({
         {generateTextFields(
           USER_CONTACT_TEXT_FIELDS,
           handleChange,
-          inputsValues
+          inputsValues,
+          errors
         )}
         <Box display="flex" justifyContent="space-between">
           <Button onClick={prevStep} variant="outlined" fullWidth>
             Back
           </Button>
-          <Button variant="contained" fullWidth>
+          <Button
+            onClick={handleSubmit}
+            variant="contained"
+            fullWidth
+            type="submit"
+          >
             Submit
           </Button>
         </Box>

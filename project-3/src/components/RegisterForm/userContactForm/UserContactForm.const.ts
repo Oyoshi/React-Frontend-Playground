@@ -7,7 +7,6 @@ export const USER_CONTACT_TEXT_FIELDS: TextFieldProps[] = [
     label: "Phone Number",
     margin: "normal",
     fullWidth: true,
-    required: true,
   },
   {
     id: "email",
@@ -16,6 +15,5 @@ export const USER_CONTACT_TEXT_FIELDS: TextFieldProps[] = [
     label: "Email",
     margin: "normal",
     fullWidth: true,
-    required: true,
   },
 ];

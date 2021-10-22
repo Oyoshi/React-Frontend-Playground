@@ -12,12 +12,14 @@ interface IUserBasicInfoForm {
   nextStep: HandleStepsFunction;
   handleChange: HandleInputsFunction;
   inputsValues: Inputs;
+  errors: Record<string, boolean>;
 }
 
 const UserBasicInfoForm: FC<IUserBasicInfoForm> = ({
   nextStep,
   handleChange,
   inputsValues,
+  errors,
 }) => {
   return (
     <Box sx={{ mt: 5, textAlign: "center" }}>
@@ -26,7 +28,8 @@ const UserBasicInfoForm: FC<IUserBasicInfoForm> = ({
         {generateTextFields(
           USER_BASIC_INFO_TEXT_FIELDS,
           handleChange,
-          inputsValues
+          inputsValues,
+          errors
         )}
         <Box display="flex" justifyContent="space-between">
           <Button onClick={nextStep} variant="contained" fullWidth>

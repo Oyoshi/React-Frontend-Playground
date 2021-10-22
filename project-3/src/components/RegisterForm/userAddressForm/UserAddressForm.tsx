@@ -13,6 +13,7 @@ interface IUserAddressForm {
   nextStep: HandleStepsFunction;
   handleChange: HandleInputsFunction;
   inputsValues: Inputs;
+  errors: Record<string, boolean>;
 }
 
 const UserAddressForm: FC<IUserAddressForm> = ({
@@ -20,6 +21,7 @@ const UserAddressForm: FC<IUserAddressForm> = ({
   nextStep,
   handleChange,
   inputsValues,
+  errors,
 }) => {
   return (
     <Box sx={{ mt: 5, textAlign: "center" }}>
@@ -28,7 +30,8 @@ const UserAddressForm: FC<IUserAddressForm> = ({
         {generateTextFields(
           USER_ADDRESS_TEXT_FIELDS,
           handleChange,
-          inputsValues
+          inputsValues,
+          errors
         )}
         <Box display="flex" justifyContent="space-between">
           <Button onClick={prevStep} variant="outlined" fullWidth>
