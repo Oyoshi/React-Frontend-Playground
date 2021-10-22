@@ -3,6 +3,7 @@ import { isEmpty } from "lodash";
 import UserBasicInfoForm from "./userBasicInfoForm";
 import UserAddressForm from "./userAddressForm";
 import UserContactForm from "./userContactForm";
+import SuccessPage from "./successPage";
 import {
   HandleStepsFunction,
   HandleInputsFunction,
@@ -46,7 +47,9 @@ const RegisterForm = () => {
 
   const validateAddressForm = () => {
     const zipCodePattern = new RegExp("^([0-9]{2})(-[0-9]{3})");
-    const isZipCodeValid = zipCodePattern.test(inputsValues.zipCode);
+    const isZipCodeValid =
+      isEmpty(inputsValues.zipCode) ||
+      zipCodePattern.test(inputsValues.zipCode);
     updateErrors({ ...errors, zipCode: !isZipCodeValid });
     return isZipCodeValid;
   };
@@ -61,7 +64,8 @@ const RegisterForm = () => {
     const emailPattern = new RegExp(
       "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+"
     );
-    const isEmailValid = emailPattern.test(inputsValues.email);
+    const isEmailValid =
+      isEmpty(inputsValues.email) || emailPattern.test(inputsValues.email);
     updateErrors({
       ...errors,
       phoneNumber: !isPhoneNumberValid,
@@ -125,6 +129,8 @@ const RegisterForm = () => {
           errors={errors}
         />
       );
+    case 4:
+      return <SuccessPage />;
     default:
       return null;
   }

@@ -17,3 +17,5 @@ export const USER_CONTACT_TEXT_FIELDS: TextFieldProps[] = [
     fullWidth: true,
   },
 ];
+
+export const TITLE = "User Contact Details";

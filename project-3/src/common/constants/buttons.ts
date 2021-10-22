@@ -1,0 +1,3 @@
+export const PREVIOUS_STEP_BUTTON_TITLE = "BACK";
+export const NEXT_STEP_BUTTON_TITLE = "NEXT";
+export const SUBMIT_BUTTON_TITLE = "SUBMIT";

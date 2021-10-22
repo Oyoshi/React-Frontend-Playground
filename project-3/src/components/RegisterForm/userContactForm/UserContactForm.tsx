@@ -1,7 +1,11 @@
 import { FC } from "react";
 import { Typography, Button, FormControl, Box } from "@mui/material";
 import { generateTextFields } from "common/utils";
-import { USER_CONTACT_TEXT_FIELDS } from "./UserContactForm.const";
+import { USER_CONTACT_TEXT_FIELDS, TITLE } from "./UserContactForm.const";
+import {
+  PREVIOUS_STEP_BUTTON_TITLE,
+  SUBMIT_BUTTON_TITLE,
+} from "common/constants";
 import {
   HandleStepsFunction,
   HandleInputsFunction,
@@ -26,7 +30,7 @@ const UserContactForm: FC<IUserContactForm> = ({
   return (
     <Box sx={{ mt: 5, textAlign: "center" }}>
       <FormControl>
-        <Typography variant="h3">User Contact Details</Typography>
+        <Typography variant="h3">{TITLE}</Typography>
         {generateTextFields(
           USER_CONTACT_TEXT_FIELDS,
           handleChange,
@@ -35,7 +39,7 @@ const UserContactForm: FC<IUserContactForm> = ({
         )}
         <Box display="flex" justifyContent="space-between">
           <Button onClick={prevStep} variant="outlined" fullWidth>
-            Back
+            {PREVIOUS_STEP_BUTTON_TITLE}
           </Button>
           <Button
             onClick={handleSubmit}
@@ -43,7 +47,7 @@ const UserContactForm: FC<IUserContactForm> = ({
             fullWidth
             type="submit"
           >
-            Submit
+            {SUBMIT_BUTTON_TITLE}
           </Button>
         </Box>
       </FormControl>

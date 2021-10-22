@@ -1,7 +1,11 @@
 import { FC } from "react";
 import { Typography, Button, FormControl, Box } from "@mui/material";
 import { generateTextFields } from "common/utils";
-import { USER_ADDRESS_TEXT_FIELDS } from "./UserAddressForm.const";
+import { USER_ADDRESS_TEXT_FIELDS, TITLE } from "./UserAddressForm.const";
+import {
+  PREVIOUS_STEP_BUTTON_TITLE,
+  NEXT_STEP_BUTTON_TITLE,
+} from "common/constants";
 import {
   HandleStepsFunction,
   HandleInputsFunction,
@@ -26,7 +30,7 @@ const UserAddressForm: FC<IUserAddressForm> = ({
   return (
     <Box sx={{ mt: 5, textAlign: "center" }}>
       <FormControl>
-        <Typography variant="h3">User Details Info</Typography>
+        <Typography variant="h3">{TITLE}</Typography>
         {generateTextFields(
           USER_ADDRESS_TEXT_FIELDS,
           handleChange,
@@ -35,10 +39,10 @@ const UserAddressForm: FC<IUserAddressForm> = ({
         )}
         <Box display="flex" justifyContent="space-between">
           <Button onClick={prevStep} variant="outlined" fullWidth>
-            Back
+            {PREVIOUS_STEP_BUTTON_TITLE}
           </Button>
           <Button onClick={nextStep} variant="contained" fullWidth>
-            Next
+            {NEXT_STEP_BUTTON_TITLE}
           </Button>
         </Box>
       </FormControl>

@@ -1,7 +1,8 @@
 import { FC } from "react";
 import { Typography, Button, FormControl, Box } from "@mui/material";
 import { generateTextFields } from "common/utils";
-import { USER_BASIC_INFO_TEXT_FIELDS } from "./UserBasicInfoForm.const";
+import { USER_BASIC_INFO_TEXT_FIELDS, TITLE } from "./UserBasicInfoForm.const";
+import { NEXT_STEP_BUTTON_TITLE } from "common/constants";
 import {
   HandleStepsFunction,
   HandleInputsFunction,
@@ -24,7 +25,7 @@ const UserBasicInfoForm: FC<IUserBasicInfoForm> = ({
   return (
     <Box sx={{ mt: 5, textAlign: "center" }}>
       <FormControl>
-        <Typography variant="h3">User Basic Info</Typography>
+        <Typography variant="h3">{TITLE}</Typography>
         {generateTextFields(
           USER_BASIC_INFO_TEXT_FIELDS,
           handleChange,
@@ -33,7 +34,7 @@ const UserBasicInfoForm: FC<IUserBasicInfoForm> = ({
         )}
         <Box display="flex" justifyContent="space-between">
           <Button onClick={nextStep} variant="contained" fullWidth>
-            Next
+            {NEXT_STEP_BUTTON_TITLE}
           </Button>
         </Box>
       </FormControl>
