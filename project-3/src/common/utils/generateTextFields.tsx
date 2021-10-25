@@ -1,5 +1,6 @@
 import { TextFieldProps, TextField } from "@mui/material";
 import { HandleInputsFunction, Inputs, InputsNames } from "common/types";
+import { ERROR_MESSAGES } from "common/constants";
 
 export const generateTextFields = (
   textFields: TextFieldProps[],
@@ -14,7 +15,7 @@ export const generateTextFields = (
       <TextField
         {...tfp}
         error={containsError}
-        helperText={containsError ? "Invalid Value" : undefined}
+        helperText={containsError ? ERROR_MESSAGES[inputId] : undefined}
         onChange={handleChange(inputId)}
         key={inputId}
         value={inputsValues[inputId as InputsNames]}
