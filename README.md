@@ -8,6 +8,7 @@ This is a **monorepo** containing projects (not necessarily related) which are s
 
 1.  [Project 1 - Dark/Light theme Software House Website](./project-1/README.md)
 2.  [Project 2 - Simple Forex App](./project-2/README.md)
+3.  [Project 3 - Multistep Register Form](./project-3/README.md)
 
 ## Setup, Build & Run :construction_worker:
 
