@@ -1,14 +1,19 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { Button } from "antd";
+import { Layout } from "antd";
+import { PageContent } from "components/organisms";
+import { Footer } from "components/molecules";
 
-const Container = styled.div`
-  background: palevioletred;
-  color: white;
+const { Header } = Layout;
+
+const PageLayout = styled(Layout)`
+  min-height: 100vh;
 `;
 
 export const App: FC = () => (
-  <Container>
-    <Button type="primary">Button</Button>
-  </Container>
+  <PageLayout>
+    <Header />
+    <PageContent />
+    <Footer />
+  </PageLayout>
 );

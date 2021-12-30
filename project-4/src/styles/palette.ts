@@ -1,0 +1,1 @@
+export const CARD_LIST_BACKGROUND = "#FFFFFF";
