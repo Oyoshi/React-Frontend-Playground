@@ -1,4 +1,4 @@
-export interface User {
+export interface UserRaw {
   id: number;
   name: string;
   username: string;
@@ -27,3 +27,14 @@ type Company = {
   catchPhrase: string;
   bs: string;
 };
+
+export interface User {
+  id: number;
+  name: string;
+}
+
+export interface FetchUsersResponse {
+  users: UsersDict;
+}
+
+export type UsersDict = Record<number, string>;
