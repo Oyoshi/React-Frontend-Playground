@@ -1,8 +1,10 @@
-import { FC, useState, useEffect, useCallback } from "react";
+import { FC, useState, useEffect, useCallback, useMemo } from "react";
+import { debounce } from "lodash";
 import styled from "styled-components";
 import { Layout, Typography } from "antd";
 import { SearchBar, PostsList } from "components/molecules";
 import { Post, fetchPosts, fetchUsers, UsersDict } from "api";
+import { isEmpty } from "lodash";
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -15,6 +17,8 @@ const ErrorMessageContainer = styled.div`
   text-align: center;
 `;
 
+const DEBOUNCE_DURATION_IN_MS = 300;
+
 export const PageContent: FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [isPostsLoading, setIsPostsLoading] = useState<boolean>(true);
@@ -22,6 +26,9 @@ export const PageContent: FC = () => {
   const [users, setUsers] = useState<UsersDict>({});
   const [isUsersLoading, setIsUsersLoading] = useState<boolean>(true);
   const [usersError, setUsersError] = useState<any>(null);
+  const [search, setSearch] = useState<string | undefined>(undefined);
+  const [sortOrder, setSortOrder] = useState<string | undefined>(undefined);
+  const [userId, setUserId] = useState<string | undefined>(undefined);
 
   const getUsers = useCallback(() => {
     setIsUsersLoading(true);
@@ -40,7 +47,7 @@ export const PageContent: FC = () => {
 
   const getPosts = useCallback(() => {
     setIsPostsLoading(true);
-    fetchPosts(users)
+    fetchPosts(users, { q: search, _order: sortOrder, userId: userId })
       .then((response) => {
         setPosts(response.posts);
       })
@@ -51,7 +58,7 @@ export const PageContent: FC = () => {
       .finally(() => {
         setIsPostsLoading(false);
       });
-  }, [users]);
+  }, [users, search, sortOrder, userId]);
 
   const error = postsError || usersError;
   const isLoading = isPostsLoading || isUsersLoading;
@@ -59,9 +66,31 @@ export const PageContent: FC = () => {
   useEffect(getUsers, [getUsers]);
   useEffect(getPosts, [getPosts]);
 
+  const handleSearchPhrase = useCallback((search: string) => {
+    setSearch(isEmpty(search) ? undefined : search);
+  }, []);
+
+  const handleSearchDebounced = useMemo(
+    () => debounce(handleSearchPhrase, DEBOUNCE_DURATION_IN_MS),
+    [handleSearchPhrase]
+  );
+
+  const handleSortOrder = (sortOrder: string) => {
+    setSortOrder(isEmpty(sortOrder) ? undefined : sortOrder);
+  };
+
+  const handleUserId = (userId: string) => {
+    setUserId(isEmpty(userId) ? undefined : userId);
+  };
+
   return (
     <Container>
-      <SearchBar users={users} />
+      <SearchBar
+        users={users}
+        onSearch={handleSearchDebounced}
+        onSortOrder={handleSortOrder}
+        onUser={handleUserId}
+      />
       {error ? (
         <ErrorMessageContainer>
           <Title>Error during during data fetching...</Title>

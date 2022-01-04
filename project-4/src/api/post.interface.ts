@@ -9,7 +9,13 @@ export interface PostRaw extends PostBase {
 }
 
 export interface Post extends PostBase {
-  userName: string;
+  name: string;
+}
+
+export interface FetchPostsRequest {
+  q?: string;
+  _order?: string;
+  userId?: string;
 }
 
 export interface FetchPostsResponse {

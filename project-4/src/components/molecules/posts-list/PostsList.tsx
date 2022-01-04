@@ -31,7 +31,7 @@ export const PostsList: FC<PostsListProps> = ({ posts, loading }) => (
         renderItem={(item: any) => (
           <List.Item key={`LIST_ITEM_${item.id}`}>
             <List.Item.Meta
-              avatar={<Avatar size="75" name={item.userName} round />}
+              avatar={<Avatar size="75" name={item.name} round />}
               title={item.title}
             />
             {item.body}

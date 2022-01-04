@@ -1,18 +1,28 @@
 import axios from "axios";
-import { FetchPostsResponse, PostRaw, Post } from "./post.interface";
+import { isEmpty } from "lodash";
+import {
+  FetchPostsResponse,
+  FetchPostsRequest,
+  PostRaw,
+  Post,
+} from "./post.interface";
 import { UsersDict } from "./user.interface";
+import { concatQueryParams } from "common/utils";
 
 export const fetchPosts: (
   users: UsersDict,
-  request?: any
-) => Promise<FetchPostsResponse> = async (users: UsersDict, request?: any) => {
-  if (Object.keys(users).length === 0) {
+  request: FetchPostsRequest
+) => Promise<FetchPostsResponse> = async (
+  users: UsersDict,
+  request: FetchPostsRequest
+) => {
+  if (isEmpty(users)) {
     return { posts: [] };
   }
+
+  const queryParams = concatQueryParams(request);
   const postsRaw = await axios
-    .get<PostRaw[]>(
-      `https://jsonplaceholder.typicode.com/posts?q=${request || ""}`
-    )
+    .get<PostRaw[]>(`https://jsonplaceholder.typicode.com/posts?${queryParams}`)
     .then((response) => response.data)
     .then((data) => data);
   return {
@@ -22,13 +32,13 @@ export const fetchPosts: (
   };
 };
 
-const transformRawPostsResponse = (post: PostRaw, user: string): Post => {
+const transformRawPostsResponse = (post: PostRaw, userName: string): Post => {
   const { id, title, body } = post;
 
   return {
     id,
     title,
     body,
-    userName: user,
+    name: userName,
   };
 };
