@@ -1,10 +1,9 @@
 import { FC, useState, useEffect, useCallback, useMemo } from "react";
-import { debounce } from "lodash";
+import { debounce, isEmpty } from "lodash";
 import styled from "styled-components";
 import { Layout, Typography } from "antd";
 import { SearchBar, PostsList } from "components/molecules";
 import { Post, fetchPosts, fetchUsers, UsersDict } from "api";
-import { isEmpty } from "lodash";
 
 const { Content } = Layout;
 const { Title } = Typography;
