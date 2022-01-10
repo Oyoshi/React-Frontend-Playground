@@ -14,6 +14,7 @@ export interface Post extends PostBase {
 
 export interface FetchPostsRequest {
   q?: string;
+  _sort?: string;
   _order?: string;
   userId?: string;
 }

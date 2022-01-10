@@ -26,6 +26,7 @@ export const PageContent: FC = () => {
   const [isUsersLoading, setIsUsersLoading] = useState<boolean>(true);
   const [usersError, setUsersError] = useState<any>(null);
   const [search, setSearch] = useState<string | undefined>(undefined);
+  const [sort, setSort] = useState<string | undefined>(undefined);
   const [sortOrder, setSortOrder] = useState<string | undefined>(undefined);
   const [userId, setUserId] = useState<string | undefined>(undefined);
 
@@ -46,7 +47,12 @@ export const PageContent: FC = () => {
 
   const getPosts = useCallback(() => {
     setIsPostsLoading(true);
-    fetchPosts(users, { q: search, _order: sortOrder, userId: userId })
+    fetchPosts(users, {
+      q: search,
+      _sort: sort,
+      _order: sortOrder,
+      userId: userId,
+    })
       .then((response) => {
         setPosts(response.posts);
       })
@@ -57,7 +63,7 @@ export const PageContent: FC = () => {
       .finally(() => {
         setIsPostsLoading(false);
       });
-  }, [users, search, sortOrder, userId]);
+  }, [users, search, sort, sortOrder, userId]);
 
   const error = postsError || usersError;
   const isLoading = isPostsLoading || isUsersLoading;
@@ -74,6 +80,10 @@ export const PageContent: FC = () => {
     [handleSearchPhrase]
   );
 
+  const handleSort = (sort: string) => {
+    setSort(isEmpty(sort) ? undefined : sort);
+  };
+
   const handleSortOrder = (sortOrder: string) => {
     setSortOrder(isEmpty(sortOrder) ? undefined : sortOrder);
   };
@@ -87,6 +97,7 @@ export const PageContent: FC = () => {
       <SearchBar
         users={users}
         onSearch={handleSearchDebounced}
+        onSort={handleSort}
         onSortOrder={handleSortOrder}
         onUser={handleUserId}
       />
