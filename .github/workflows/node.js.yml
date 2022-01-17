@@ -4,16 +4,27 @@
 name: CI
 on: [push]
 jobs:
-  build:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          working-directory: project-1
-          cmd: install
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          working-directory: project-1
-          cmd: build
+  jobs:
+    install-and-test:
+      runs-on: ubuntu-latest
+
+      strategy:
+        matrix:
+          node-version: [16.x]
+
+      steps:
+        - uses: actions/checkout@master
+
+        - name: Set up Node.js ${{ matrix.node-version }}
+          uses: actions/setup-node@master
+          with:
+            node-version: ${{ matrix.node-version }}
+
+        - name: Install
+          run: yarn install --frozen-lockfile
+
+        - name: Build
+          run: yarn build
+
+          env:
+            CI: true
