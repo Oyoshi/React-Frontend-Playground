@@ -1,0 +1,38 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+      - name: Install deps in Project 1
+        working-directory: project-1
+        run: yarn install --frozen-lock
+      - name: Build Project 1
+        working-directory: project-1
+        run: yarn run build
+      - name: Install deps in Project 2
+        working-directory: project-2
+        run: yarn install --frozen-lock
+      - name: Build Project 2
+        working-directory: project-2
+        run: yarn run build
+      - name: Install deps in Project 3
+        working-directory: project-3
+        run: yarn install --frozen-lock
+      - name: Build Project 3
+        working-directory: project-3
+        run: yarn run build
+      - name: Install deps in Project 4
+        working-directory: project-4
+        run: yarn install --frozen-lock
+      - name: Build Project 4
+        working-directory: project-4
+        run: yarn run build
