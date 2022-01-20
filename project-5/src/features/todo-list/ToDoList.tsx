@@ -3,8 +3,9 @@ import { isEmpty } from "lodash";
 import { useAppSelector, useAppDispatch } from "app/hooks";
 import { ToDo, InputEvent, SubmitEvent } from "./ToDoList.interface";
 import { selectToDos, addToDo } from "./ToDoListSlice";
-import { PrimaryButton, DangerButton, Input } from "components/atoms";
-import { Form, ToDoItemList, ToDoItem } from "./ToDoList.styles";
+import { PrimaryButton, Input } from "components/atoms";
+import { Form, ToDoItemList } from "./ToDoList.styles";
+import { ToDoItem } from "./components/molecules";
 
 export const ToDoList = () => {
   const [newToDoTitle, setNewToDoTile] = useState<string>();
@@ -34,11 +35,7 @@ export const ToDoList = () => {
       <ToDoItemList>
         {todos.map((todo: ToDo) => (
           <li key={todo.id}>
-            <ToDoItem>
-              <h2>{todo.title}</h2>
-              <h3>{todo.completed.toString()}</h3>
-              <DangerButton>Delete</DangerButton>
-            </ToDoItem>
+            <ToDoItem {...todo} />
           </li>
         ))}
       </ToDoItemList>
