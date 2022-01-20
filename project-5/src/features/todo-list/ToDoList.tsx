@@ -8,13 +8,13 @@ import { Form, ToDoItemList } from "./ToDoList.styles";
 import { ToDoItem } from "./components/molecules";
 
 export const ToDoList = () => {
-  const [newToDoTitle, setNewToDoTile] = useState<string>();
+  const [newToDoTitle, setNewToDoTitle] = useState<string>();
 
   const todos = useAppSelector(selectToDos);
   const dispatch = useAppDispatch();
 
   const handleInputChange = (e: InputEvent) =>
-    setNewToDoTile(e.currentTarget.value);
+    setNewToDoTitle(e.currentTarget.value);
   const handleSubmit = (e: SubmitEvent) => {
     e.preventDefault();
     if (newToDoTitle && !isEmpty(newToDoTitle)) {
