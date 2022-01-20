@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { isEmpty } from "lodash";
 import { useAppSelector, useAppDispatch } from "app/hooks";
-import { ToDo, InputEvent, SubmitEvent } from "./todo.interface";
-import { selectToDos, addToDo } from "./todoSlice";
+import { ToDo, InputEvent, SubmitEvent } from "./ToDoList.interface";
+import { selectToDos, addToDo } from "./ToDoListSlice";
 import { PrimaryButton, DangerButton, Input } from "components/atoms";
 import { Form, ToDoItemList, ToDoItem } from "./ToDoList.styles";
 

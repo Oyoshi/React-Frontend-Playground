@@ -8,13 +8,20 @@ export const ToDoItem = styled.div`
   }
 `;
 
+export const Form = styled.form`
+  background: #440381;
+  min-height: 30vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  > * {
+    margin: 0.5em 0;
+  }
+`;
+
 export const ToDoItemList = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 1em 2em;
-`;
-
-export const Form = styled.form`
-  background: #440381;
-  min-height: 30vh;
 `;

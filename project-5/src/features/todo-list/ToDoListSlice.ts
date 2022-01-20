@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
-import { ToDo, ToDoListState } from "./todo.interface";
+import { ToDo, ToDoListState } from "./ToDoList.interface";
 
 const initialState: ToDoListState = {
   todos: [
