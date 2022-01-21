@@ -9,6 +9,7 @@ export const ToDoItemCard = styled.div<{ completed: boolean }>`
   }
   margin: 1em 0;
   display: flex;
+  min-height: 5em;
 `;
 
 export const TitleContainer = styled.div`
