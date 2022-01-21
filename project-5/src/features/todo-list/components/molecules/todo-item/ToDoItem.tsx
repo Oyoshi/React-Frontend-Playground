@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useAppDispatch } from "app/hooks";
 import { ToDo } from "features/todo-list/ToDoList.interface";
-import { toggleComplete } from "features/todo-list/ToDoListSlice";
+import { toggleComplete, deleteToDo } from "features/todo-list/ToDoListSlice";
 import {
   ToDoItemCard,
   TitleContainer,
@@ -16,6 +16,10 @@ export const ToDoItem: FC<ToDo> = ({ id, title, completed }) => {
     dispatch(toggleComplete({ id: id, completed: !completed }));
   };
 
+  const handleDelete = () => {
+    dispatch(deleteToDo({ id: id }));
+  };
+
   return (
     <ToDoItemCard completed={completed}>
       <TitleContainer>
@@ -28,7 +32,7 @@ export const ToDoItem: FC<ToDo> = ({ id, title, completed }) => {
       </TitleContainer>
       <ActionButtonsContainer>
         <SecondaryButton>Edit</SecondaryButton>
-        <DangerButton>Delete</DangerButton>
+        <DangerButton onClick={handleDelete}>Delete</DangerButton>
       </ActionButtonsContainer>
     </ToDoItemCard>
   );

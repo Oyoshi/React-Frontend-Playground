@@ -11,10 +11,10 @@ const todoSlice = createSlice({
   name: "todos",
   initialState: initialState,
   reducers: {
-    addToDo: (state, action: PayloadAction<string>) => {
+    addToDo: (state, action: PayloadAction<{ title: string }>) => {
       const newTodo: ToDo = {
         id: v4(),
-        title: action.payload,
+        title: action.payload.title,
         completed: false,
       };
       state.todos.push(newTodo);
@@ -28,9 +28,14 @@ const todoSlice = createSlice({
       );
       state.todos[todoIdx].completed = action.payload.completed;
     },
+    deleteToDo: (state, action: PayloadAction<{ id: string }>) => {
+      state.todos = state.todos.filter(
+        (todo: ToDo) => todo.id !== action.payload.id
+      );
+    },
   },
 });
 
-export const { addToDo, toggleComplete } = todoSlice.actions;
+export const { addToDo, toggleComplete, deleteToDo } = todoSlice.actions;
 export const selectToDos = (state: RootState) => state.todos.todos;
 export default todoSlice.reducer;

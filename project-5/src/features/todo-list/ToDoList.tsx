@@ -18,7 +18,7 @@ export const ToDoList = () => {
   const handleSubmit = (e: SubmitEvent) => {
     e.preventDefault();
     if (newToDoTitle && !isEmpty(newToDoTitle)) {
-      dispatch(addToDo(newToDoTitle));
+      dispatch(addToDo({ title: newToDoTitle }));
     }
   };
 
