@@ -1,15 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
-import * as serviceWorker from "./serviceWorker";
+import { ThemeProvider } from "styled-components";
 import { ToDoList } from "features/todo-list/ToDoList";
+import { GlobalStyles } from "styles/GlobalStyles";
+import { theme } from "styles/theme";
+import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
+    <GlobalStyles />
     <Provider store={store}>
-      <ToDoList />
+      <ThemeProvider theme={theme}>
+        <ToDoList />
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

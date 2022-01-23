@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 export const ToDoItemCard = styled.div<{ completed: boolean }>`
-  background-color: ${(props) => (props.completed ? "#FFD6C0" : "#FFFFFF")};
+  background-color: ${(props) =>
+    props.completed
+      ? props.theme.palette.common.cardCompletedBackground
+      : props.theme.palette.common.cardBackground};
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
+  transition: ${(props) => props.theme.effects.transition};
   :hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   }

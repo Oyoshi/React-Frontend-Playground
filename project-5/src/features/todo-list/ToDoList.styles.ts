@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Form = styled.form`
-  background: #440381;
+  background-color: ${(props) => props.theme.palette.secondary.background};
   min-height: 30vh;
   align-items: center;
   display: flex;

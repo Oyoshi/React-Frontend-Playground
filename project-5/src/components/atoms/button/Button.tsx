@@ -13,5 +13,5 @@ export const SecondaryButton: FC<NativeButtonProps> = ({ ...rest }) => (
   <Button btnType="secondary" {...rest} />
 );
 export const DangerButton: FC<NativeButtonProps> = ({ ...rest }) => (
-  <Button btnType="danger" {...rest} />
+  <Button btnType="accent" {...rest} />
 );

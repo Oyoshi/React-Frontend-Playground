@@ -7,5 +7,5 @@ export interface NativeButtonProps
   > {}
 
 export interface ButtonProps extends NativeButtonProps {
-  btnType: "primary" | "secondary" | "danger";
+  btnType: "primary" | "secondary" | "accent";
 }
