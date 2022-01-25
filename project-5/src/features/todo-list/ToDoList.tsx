@@ -2,15 +2,16 @@ import { useState } from "react";
 import { isEmpty } from "lodash";
 import { useAppSelector, useAppDispatch } from "app/hooks";
 import { ToDo, InputEvent, SubmitEvent } from "./ToDoList.interface";
-import { selectToDos, addToDo } from "./ToDoListSlice";
+import { selectToDos, selectCompletedToDos, addToDo } from "./ToDoListSlice";
 import { PrimaryButton, Input } from "components/atoms";
-import { Form, ToDoItemList } from "./ToDoList.styles";
+import { Section, Form, ToDoItemList } from "./ToDoList.styles";
 import { ToDoItem } from "./components/molecules";
 
 export const ToDoList = () => {
   const [newToDoTitle, setNewToDoTitle] = useState<string>();
 
   const todos = useAppSelector(selectToDos);
+  const completedToDos = useAppSelector(selectCompletedToDos);
   const dispatch = useAppDispatch();
 
   const handleInputChange = (e: InputEvent) =>
@@ -23,8 +24,9 @@ export const ToDoList = () => {
   };
 
   return (
-    <section>
+    <Section>
       <Form onSubmit={handleSubmit}>
+        <h1>ToDo App</h1>
         <Input
           type="text"
           placeholder="Add new ToDo..."
@@ -32,6 +34,7 @@ export const ToDoList = () => {
         />
         <PrimaryButton type="submit">Submit</PrimaryButton>
       </Form>
+      <h2>Tasks</h2>
       <ToDoItemList>
         {todos.map((todo: ToDo) => (
           <li key={todo.id}>
@@ -39,6 +42,14 @@ export const ToDoList = () => {
           </li>
         ))}
       </ToDoItemList>
-    </section>
+      <h2>Completed</h2>
+      <ToDoItemList>
+        {completedToDos.map((todo: ToDo) => (
+          <li key={todo.id}>
+            <ToDoItem {...todo} />
+          </li>
+        ))}
+      </ToDoItemList>
+    </Section>
   );
 };
