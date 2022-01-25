@@ -11,7 +11,7 @@ import {
   TitleContainer,
   ActionButtonsContainer,
 } from "./ToDoItem.styles";
-import { SecondaryButton, DangerButton } from "components/atoms";
+import { SecondaryButton, DangerButton, Input } from "components/atoms";
 
 export const ToDoItem: FC<ToDo> = ({ id, title, completed }) => {
   const [edit, setEdit] = useState<boolean>(false);
@@ -48,7 +48,7 @@ export const ToDoItem: FC<ToDo> = ({ id, title, completed }) => {
           onChange={handleToggleChange}
         />
         {edit ? (
-          <input
+          <Input
             type="text"
             onChange={handleInputChange}
             value={currentTitle}

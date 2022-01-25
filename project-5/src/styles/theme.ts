@@ -7,8 +7,11 @@ import {
   SecondaryColor,
   AccentColor,
   ButtonBackgroundColorPrimary,
+  ButtonBackgroundColorHoverPrimary,
   ButtonBackgroundColorSecondary,
+  ButtonBackgroundColorHoverSecondary,
   ButtonBackgroundColorAccent,
+  ButtonBackgroundColorHoverAccent,
   ButtonColor,
   CardBackground,
   CardCompletedBackground,
@@ -17,6 +20,7 @@ import {
 export const theme: DefaultTheme = {
   palette: {
     common: {
+      borderRadius: "24px",
       buttonColor: ButtonColor,
       cardBackground: CardBackground,
       cardCompletedBackground: CardCompletedBackground,
@@ -25,16 +29,19 @@ export const theme: DefaultTheme = {
       color: PrimaryColor,
       background: BackgroundColorPrimary,
       buttonBackground: ButtonBackgroundColorPrimary,
+      buttonBackgroundHover: ButtonBackgroundColorHoverPrimary,
     },
     secondary: {
       color: SecondaryColor,
       background: BackgroundColorSecondary,
       buttonBackground: ButtonBackgroundColorSecondary,
+      buttonBackgroundHover: ButtonBackgroundColorHoverSecondary,
     },
     accent: {
       color: AccentColor,
       background: BackgroundColorAccent,
       buttonBackground: ButtonBackgroundColorAccent,
+      buttonBackgroundHover: ButtonBackgroundColorHoverAccent,
     },
   },
   effects: {
