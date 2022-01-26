@@ -36,3 +36,9 @@ jobs:
       - name: Build Project 4
         working-directory: project-4
         run: yarn run build
+      - name: Install deps in Project 5
+        working-directory: project-5
+        run: yarn install --frozen-lock
+      - name: Build Project 5
+        working-directory: project-5
+        run: yarn run build
